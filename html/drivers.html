@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Standings - Ruckus Racing League</title>
+    <meta name="description" content="Current driver standings and championship points for Ruckus Racing League.">
+    
+    <!-- Tailwind CSS from build -->
+    <link href="../css/style.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-white font-inter">
+    <!-- Navigation -->
+    <nav class="bg-black border-b-2 border-racing-purple sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="index.html" class="text-2xl font-racing font-bold text-white">
+                    Ruckus<span class="text-racing-purple">Racing</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link-custom">Home</a>
+                    <a href="about.html" class="nav-link-custom">About</a>
+                    <a href="leagues.html" class="nav-link-custom">Leagues</a>
+                    <a href="drivers.html" class="nav-link-custom text-racing-purple">Standings</a>
+                    <a href="schedule.html" class="nav-link-custom">Schedule</a>
+                    <a href="contact.html" class="nav-link-custom">Contact</a>
+                </div>
+                
+                <button class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-black via-racing-gray to-purple-dark py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-6xl font-racing font-bold gradient-text mb-6">Driver Standings</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">Current championship standings across all Ruckus Racing leagues</p>
+        </div>
+    </section>
+
+    <!-- Championship Selector -->
+    <section class="py-12 bg-racing-gray">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <select class="bg-gray-800 text-white px-6 py-3 rounded-lg border border-gray-700 focus:border-racing-purple focus:outline-none">
+                    <option>Ruckus Pro Championship - Season 3</option>
+                    <option>Rookie Ruckus Series - Season 5</option>
+                    <option>Endurance Ruckus Cup - Season 2</option>
+                    <option>Formula Ruckus - Season 4</option>
+                </select>
+                <button class="bg-racing-purple text-white px-6 py-3 rounded-lg font-medium hover:bg-purple-dark transition-colors">
+                    View Standings
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Driver Standings Table -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="driver-table rounded-xl overflow-hidden">
+                <table class="w-full">
+                    <thead>
+                        <tr>
+                            <th class="text-left">Pos</th>
+                            <th class="text-left">Driver</th>
+                            <th class="text-left">Team</th>
+                            <th class="text-left">Wins</th>
+                            <th class="text-left">Podiums</th>
+                            <th class="text-left">Points</th>
+                        </tr>
+                    </thead>
+                    <tbody id="standingsBody">
+                        <!-- Driver data will be loaded by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Drivers Spotlight -->
+    <section class="py-20 bg-racing-gray">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-racing font-bold gradient-text text-center mb-12">Championship Leaders</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl p-8 text-center text-white">
+                    <div class="text-6xl mb-4">🥇</div>
+                    <h3 class="text-2xl font-racing font-bold mb-2">Alex Turner</h3>
+                    <p class="text-yellow-100 mb-4">Ruckus Performance</p>
+                    <div class="text-3xl font-racing">245 PTS</div>
+                    <p class="text-yellow-100 mt-2">3 Wins • 5 Podiums</p>
+                </div>
+                <div class="bg-gradient-to-br from-gray-400 to-gray-600 rounded-2xl p-8 text-center text-white">
+                    <div class="text-6xl mb-4">🥈</div>
+                    <h3 class="text-2xl font-racing font-bold mb-2">Maria Rodriguez</h3>
+                    <p class="text-gray-200 mb-4">Chaos Competitors</p>
+                    <div class="text-3xl font-racing">232 PTS</div>
+                    <p class="text-gray-200 mt-2">2 Wins • 6 Podiums</p>
+                </div>
+                <div class="bg-gradient-to-br from-amber-700 to-amber-900 rounded-2xl p-8 text-center text-white">
+                    <div class="text-6xl mb-4">🥉</div>
+                    <h3 class="text-2xl font-racing font-bold mb-2">James Wilson</h3>
+                    <p class="text-amber-200 mb-4">Ruckus Factory</p>
+                    <div class="text-3xl font-racing">218 PTS</div>
+                    <p class="text-amber-200 mt-2">1 Win • 4 Podiums</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Standings -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-racing font-bold gradient-text text-center mb-12">Team Standings</h2>
+            <div class="driver-table rounded-xl overflow-hidden">
+                <table class="w-full">
+                    <thead>
+                        <tr>
+                            <th class="text-left">Pos</th>
+                            <th class="text-left">Team</th>
+                            <th class="text-left">Points</th>
+                            <th class="text-left">Wins</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-800 hover:bg-gray-800/50">
+                            <td class="px-6 py-4">1</td>
+                            <td class="px-6 py-4 font-medium">Ruckus Performance</td>
+                            <td class="px-6 py-4 font-racing font-bold">443</td>
+                            <td class="px-6 py-4">5</td>
+                        </tr>
+                        <tr class="border-b border-gray-800 hover:bg-gray-800/50">
+                            <td class="px-6 py-4">2</td>
+                            <td class="px-6 py-4 font-medium">Chaos Competitors</td>
+                            <td class="px-6 py-4 font-racing font-bold">398</td>
+                            <td class="px-6 py-4">3</td>
+                        </tr>
+                        <tr class="border-b border-gray-800 hover:bg-gray-800/50">
+                            <td class="px-6 py-4">3</td>
+                            <td class="px-6 py-4 font-medium">Ruckus Factory</td>
+                            <td class="px-6 py-4 font-racing font-bold">376</td>
+                            <td class="px-6 py-4">2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-racing-gray border-t-2 border-racing-purple py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h5 class="text-white text-lg font-bold font-racing mb-4">Ruckus Racing</h5>
+                    <p class="text-gray-400">Creating the most competitive and fun sim racing experience since 2023.</p>
+                </div>
+                <div>
+                    <h5 class="text-white text-lg font-bold mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-racing-purple transition-colors">Home</a></li>
+                        <li><a href="leagues.html" class="text-gray-400 hover:text-racing-purple transition-colors">Leagues</a></li>
+                        <li><a href="drivers.html" class="text-gray-400 hover:text-racing-purple transition-colors">Standings</a></li>
+                        <li><a href="schedule.html" class="text-gray-400 hover:text-racing-purple transition-colors">Schedule</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white text-lg font-bold mb-4">Support</h5>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-400 hover:text-racing-purple transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-racing-purple transition-colors">Rules & Regulations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-racing-purple transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white text-lg font-bold mb-4">Connect</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-racing-purple transition-colors">Discord</a>
+                        <a href="#" class="text-gray-400 hover:text-racing-purple transition-colors">Twitch</a>
+                        <a href="#" class="text-gray-400 hover:text-racing-purple transition-colors">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2025 Ruckus Racing League. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
