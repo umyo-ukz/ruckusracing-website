@@ -10,10 +10,15 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Science Gothic', sans-serif;
 }
 
 /* Custom component classes */
+
+.glow {
+  box-shadow: 0 0 10px #6a0dad, rgba (106, 13, 173, 0.5);
+  transition: box-shadow 0.3s ease;
+}
 .btn-racing {
   background: linear-gradient(45deg, #6a0dad, #4b0082);
   color: white;
@@ -83,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Science Gothic', sans-serif;
   font-size: 3rem;
   font-weight: bold;
 }
@@ -180,3 +185,4 @@ h1, h2, h3, h4, h5, h6 {
     transform: rotate(360deg);
   }
 }
+

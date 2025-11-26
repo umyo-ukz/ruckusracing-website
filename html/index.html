@@ -1,194 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ruckus Racing League - Professional Sim Racing</title>
-    <meta name="description" content="Join the most competitive sim racing league. Professional racing for esports drivers and enthusiasts.">
-    
+    <meta
+      name="description"
+      content="Join the most competitive sim racing league. Professional racing for esports drivers and enthusiasts."
+    />
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'racing-purple': '#6a0dad',
-                        'purple-dark': '#4b0082',
-                        'purple-light': '#8a2be2',
-                        'racing-black': '#000000',
-                        'racing-gray': '#1a1a1a',
-                    },
-                    fontFamily: {
-                        'racing': ['Orbitron', 'sans-serif'],
-                        'inter': ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "racing-purple": "#6a0dad",
+              "purple-dark": "#4b0082",
+              "purple-light": "#8a2be2",
+              "racing-black": "#000000",
+              "racing-gray": "#1a1a1a",
+            },
+            fontFamily: {
+              racing: ["Science Gothic", "sans-serif"],
+              inter: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        .gradient-text {
-            background: linear-gradient(45deg, #ffffff, #6a0dad);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+      .gradient-text {
+        background: linear-gradient(45deg, #ffffff, #6a0dad);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .loading {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid #ffffff33;
+        border-radius: 50%;
+        border-top-color: #6a0dad;
+        animation: spin 1s ease-in-out infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
         }
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #ffffff33;
-            border-radius: 50%;
-            border-top-color: #6a0dad;
-            animation: spin 1s ease-in-out infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+      }
     </style>
 
     <style>
-    .stat-number {
+      .stat-number {
         background: linear-gradient(45deg, #ffffff, #6a0dad) !important;
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
         background-clip: text !important;
-        font-family: 'Orbitron', sans-serif !important;
+        font-family: "Science Gothic", sans-serif !important;
         font-size: 3rem !important;
         font-weight: bold !important;
-    }
-</style>
-</head>
-<body class="bg-black text-white font-inter">
+      }
+    </style>
+  </head>
+  <body class="text-white bg-black font-inter">
     <!-- Navigation -->
-    <nav class="bg-black border-b-2 border-racing-purple sticky top-0 z-50">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <a href="index.html" class="text-2xl font-racing font-bold text-white">
-                    Ruckus<span class="text-racing-purple">Racing</span>
-                </a>
-                
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="nav-link-custom">Home</a>
-                    <a href="about.html" class="nav-link-custom">About</a>
-                    <a href="leagues.html" class="nav-link-custom">Leagues</a>
-                    <a href="drivers.html" class="nav-link-custom">Standings</a>
-                    <a href="schedule.html" class="nav-link-custom">Schedule</a>
-                    <a href="contact.html" class="nav-link-custom">Contact</a>
-                </div>
-                
-                <!-- Mobile menu button -->
-                <button class="md:hidden text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
+    <nav class="sticky top-0 z-50 bg-black border-b-2 border-racing-purple">
+      <div class="container px-4 mx-auto">
+        <div class="flex items-center justify-between py-4">
+          <a
+            href="index.html"
+            class="text-2xl font-bold text-white font-racing"
+          >
+            Ruckus<span class="text-racing-purple">Racing</span>
+          </a>
+
+          <div class="hidden space-x-8 md:flex">
+            <a href="index.html" class="nav-link-custom">Home</a>
+            <a href="about.html" class="nav-link-custom">About</a>
+            <a href="leagues.html" class="nav-link-custom">Leagues</a>
+            <a href="drivers.html" class="nav-link-custom">Standings</a>
+            <a href="schedule.html" class="nav-link-custom">Schedule</a>
+            <a href="contact.html" class="nav-link-custom">Contact</a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button class="text-white md:hidden">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
         </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-[80vh] bg-gradient-to-br from-black via-racing-gray to-purple-dark flex items-center justify-center text-center relative overflow-hidden">
-        <img src="/img/hero.png" alt="Hero Image" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black/50"></div>
-        <div class="container mx-auto px-4 relative z-10">
-            <h1 class="text-5xl md:text-7xl font-racing font-bold gradient-text mb-6 text-shadow">
-                Race Beyond Limits
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                Join the most competitive sim racing league with professional drivers, live stewarding, and broadcasted events.
-            </p>
-            <a href="leagues.html" class="btn-racing inline-block">
-                Join Now
-            </a>
-        </div>
+    <section
+      class="min-h-[80vh] bg-gradient-to-br from-black via-racing-gray to-purple-dark flex items-center justify-center text-center relative overflow-hidden"
+    >
+      <img
+        src="/img/hero.png"
+        alt="Hero Image"
+        class="absolute inset-0 object-cover w-full h-full"
+      />
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="container relative z-10 px-4 mx-auto">
+        <h1
+          class="mb-6 font-bold text-1xl md:text-7xl font-racing gradient-text text-shadow p-[15px]"
+        >
+          Race Beyond Limits
+        </h1>
+        <p class="max-w-3xl mx-auto mb-8 text-xl text-gray-300 md:text-2xl">
+          Join the most competitive sim racing league with professional drivers,
+          live stewarding, and broadcasted events.
+        </p>
+        <button
+          class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-heading rounded-full group bg-gradient-to-br from-purple-600 to-purple-300 hover:from-purple-600 hover:to-purple-300 focus:ring-4 focus:outline-none focus:ring-blue-300"
+        >
+          <span
+            class="relative px-6 py-2 text-gray-200 transition-all duration-75 ease-in rounded-full bg-racing-gray group-hover:bg-transparent"
+          >
+            <a href="leagues.html">Join Now</a>
+          </span>
+        </button>
+      </div>
     </section>
 
     <!-- Stats Section -->
     <section class="py-20 bg-racing-gray">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="stat-number" data-target="2500">0</div>
-                    <p class="text-gray-400 mt-2">Active Drivers</p>
-                </div>
-                <div>
-                    <div class="stat-number" data-target="156">0</div>
-                    <p class="text-gray-400 mt-2">Races Monthly</p>
-                </div>
-                <div>
-                    <div class="stat-number" data-target="42">0</div>
-                    <p class="text-gray-400 mt-2">Leagues</p>
-                </div>
-                <div>
-                    <div class="stat-number" data-target="18">0</div>
-                    <p class="text-gray-400 mt-2">Car Classes</p>
-                </div>
-            </div>
+      <div class="container px-4 mx-auto">
+        <div class="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
+          <div>
+            <div class="stat-number" data-target="2500">0</div>
+            <p class="mt-2 text-gray-400">Active Drivers</p>
+          </div>
+          <div>
+            <div class="stat-number" data-target="156">0</div>
+            <p class="mt-2 text-gray-400">Races Monthly</p>
+          </div>
+          <div>
+            <div class="stat-number" data-target="42">0</div>
+            <p class="mt-2 text-gray-400">Leagues</p>
+          </div>
+          <div>
+            <div class="stat-number" data-target="18">0</div>
+            <p class="mt-2 text-gray-400">Car Classes</p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Featured Leagues -->
     <section class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="section-title">
-                <h2>Featured Leagues</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="featuredLeagues">
-                <!-- Leagues will be loaded by JavaScript -->
-            </div>
+      <div class="container px-4 mx-auto">
+        <div class="section-title">
+          <h2>Featured Leagues</h2>
+          <div class="underline"></div>
         </div>
+        <div
+          class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
+          id="featuredLeagues"
+        >
+          <!-- Leagues will be loaded by JavaScript -->
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-racing-gray border-t-2 border-racing-purple py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h5 class="text-white text-lg font-bold font-racing mb-4">Ruckus Racing</h5>
-                    <p class="text-gray-400">
-                        Professional sim racing league bringing together the best virtual drivers from around the world.
-                    </p>
-                </div>
-                <div>
-                    <h5 class="text-white text-lg font-bold mb-4">Quick Links</h5>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-racing-purple transition-colors">Home</a></li>
-                        <li><a href="leagues.html" class="text-gray-400 hover:text-racing-purple transition-colors">Leagues</a></li>
-                        <li><a href="drivers.html" class="text-gray-400 hover:text-racing-purple transition-colors">Standings</a></li>
-                        <li><a href="schedule.html" class="text-gray-400 hover:text-racing-purple transition-colors">Schedule</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="text-white text-lg font-bold mb-4">Support</h5>
-                    <ul class="space-y-2">
-                        <li><a href="contact.html" class="text-gray-400 hover:text-racing-purple transition-colors">Contact Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-racing-purple transition-colors">Rules & Regulations</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-racing-purple transition-colors">FAQ</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="text-white text-lg font-bold mb-4">Connect</h5>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-racing-purple transition-colors">Discord</a>
-                        <a href="#" class="text-gray-400 hover:text-racing-purple transition-colors">Twitch</a>
-                        <a href="#" class="text-gray-400 hover:text-racing-purple transition-colors">YouTube</a>
-                    </div>
-                </div>
+    <footer class="py-12 border-t-2 bg-racing-gray border-racing-purple">
+      <div class="container px-4 mx-auto">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
+          <div>
+            <h5 class="mb-4 text-lg font-bold text-white font-racing">
+              Ruckus Racing
+            </h5>
+            <p class="text-gray-400">
+              Professional sim racing league bringing together the best virtual
+              drivers from around the world.
+            </p>
+          </div>
+          <div>
+            <h5 class="mb-4 text-lg font-bold text-white">Quick Links</h5>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="leagues.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Leagues</a
+                >
+              </li>
+              <li>
+                <a
+                  href="drivers.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Standings</a
+                >
+              </li>
+              <li>
+                <a
+                  href="schedule.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Schedule</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="mb-4 text-lg font-bold text-white">Support</h5>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Rules & Regulations</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="mb-4 text-lg font-bold text-white">Connect</h5>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 transition-colors hover:text-racing-purple"
+                >Discord</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 transition-colors hover:text-racing-purple"
+                >Twitch</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 transition-colors hover:text-racing-purple"
+                >YouTube</a
+              >
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-                <p class="text-gray-400">&copy; 2025 Ruckus Racing League. All rights reserved.</p>
-            </div>
+          </div>
         </div>
+        <div class="pt-8 mt-8 text-center border-t border-gray-800">
+          <p class="text-gray-400">
+            &copy; 2025 Ruckus Racing League. All rights reserved.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <!-- Scripts -->
     <script src="../js/script.js"></script>
-</body>
+  </body>
 </html>

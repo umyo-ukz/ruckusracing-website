@@ -14,7 +14,7 @@ module.exports = {
         'racing-gray': '#1a1a1a',
       },
       fontFamily: {
-        'racing': ['Orbitron', 'sans-serif'],
+        'racing': ['Science Gothic', 'sans-serif'],
         'inter': ['Inter', 'sans-serif'],
       },
     },
