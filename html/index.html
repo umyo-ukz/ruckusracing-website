@@ -10,26 +10,8 @@
     />
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              "racing-purple": "#6a0dad",
-              "purple-dark": "#4b0082",
-              "purple-light": "#8a2be2",
-              "racing-black": "#000000",
-              "racing-gray": "#1a1a1a",
-            },
-            fontFamily: {
-              racing: ["Science Gothic", "sans-serif"],
-              inter: ["Inter", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
+    <link href="../css/style.css" rel="stylesheet" />
+  
 
     <!-- Google Fonts -->
     <link
@@ -42,6 +24,8 @@
       href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
       .gradient-text {
         background: linear-gradient(45deg, #ffffff, #6a0dad);
@@ -79,7 +63,7 @@
   </head>
   <body class="text-white bg-black font-inter">
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-black border-b-2 border-racing-purple">
+    <nav class="fixed top-0 w-full z-50 navbar-transparent border-b-2 border-transparent transition-all duration-500">
       <div class="container px-4 mx-auto">
         <div class="flex items-center justify-between py-4">
           <a
@@ -90,15 +74,16 @@
           </a>
 
           <div class="hidden space-x-8 md:flex">
-            <a href="index.html" class="nav-link-custom">Home</a>
-            <a href="about.html" class="nav-link-custom">About</a>
+            <a href="index.html" class="nav-link-custom text-racing-purple">Home</a>
+            <a href="about.html" class="nav-link-custom"
+              >About</a
+            >
             <a href="leagues.html" class="nav-link-custom">Leagues</a>
             <a href="drivers.html" class="nav-link-custom">Standings</a>
             <a href="schedule.html" class="nav-link-custom">Schedule</a>
             <a href="contact.html" class="nav-link-custom">Contact</a>
           </div>
 
-          <!-- Mobile menu button -->
           <button class="text-white md:hidden">
             <svg
               class="w-6 h-6"
@@ -128,30 +113,53 @@
         class="absolute inset-0 object-cover w-full h-full"
       />
       <div class="absolute inset-0 bg-black/50"></div>
+      <div class="bg-gradient-to-b from-transparent to-black absolute inset-0"></div>
       <div class="container relative z-10 px-4 mx-auto">
         <h1
-          class="mb-6 font-bold text-1xl md:text-7xl font-racing gradient-text text-shadow p-[15px]"
+          class="mb-6 font-bold text-1xl md:text-7xl font-racing gradient-text text-shadow p-20"
         >
           Race Beyond Limits
         </h1>
         <p class="max-w-3xl mx-auto mb-8 text-xl text-gray-300 md:text-2xl">
-          Join the most competitive sim racing league with professional drivers,
+          Welcome to Ruckus Racing
+        </p>
+        <p class="max-w-3xl mx-auto mb-8 text-xl text-gray-300 md:text-2xl">
+          Sim race any day at any with professional drivers,
           live stewarding, and broadcasted events.
         </p>
         <button
-          class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-heading rounded-full group bg-gradient-to-br from-purple-600 to-purple-300 hover:from-purple-600 hover:to-purple-300 focus:ring-4 focus:outline-none focus:ring-blue-300"
+          class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-heading rounded-full group bg-gradient-to-br from-purple-600
+           to-purple-300 hover:from-purple-600 hover:to-purple-300 focus:ring-4 focus:outline-none focus:ring-blue-300"
         >
           <span
-            class="relative px-6 py-2 text-gray-200 transition-all duration-75 ease-in rounded-full bg-racing-gray group-hover:bg-transparent"
+            class="relative px-8 py-3 text-gray-200 transition-all duration-75 ease-in rounded-full bg-racing-gray group-hover:bg-transparent"
           >
             <a href="leagues.html">Join Now</a>
           </span>
         </button>
-      </div>
-    </section>
 
-    <!-- Stats Section -->
-    <section class="py-20 bg-racing-gray">
+        <p class="text-gray-500 p-5 pt-16 text-m mt-4">Simulators featured</p>
+        <div class="flex justify-center items-center space-x-6 mt-2">
+
+          <img
+            src="/img/AC-logo.png"
+            alt="Assetto Corsa Logo"
+            class="h-10"
+          />
+          <img
+            src="/img/acclogo.png"
+            alt="Assetto Corsa Competizione Logo"
+            class="h-16"
+            />
+          <img
+            src="/img/LeMansUltimateLogo.png"
+            alt="iRacing Logo"
+            class="h-14"
+          />
+          
+      </div>
+      <!-- Stats Section -->
+    <section class="py-20">
       <div class="container px-4 mx-auto">
         <div class="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
           <div>
@@ -173,12 +181,20 @@
         </div>
       </div>
     </section>
+    </section>
+
+    
 
     <!-- Featured Leagues -->
-    <section class="py-20">
-      <div class="container px-4 mx-auto">
-        <div class="section-title">
-          <h2>Featured Leagues</h2>
+    <section class="py-20 relative overflow-hidden">
+      <img
+        src="/img/featured.png"
+        alt="Featured Leagues Background"
+        class="absolute inset-0 object-cover w-full h-full opacity-20">
+      <div class="absolute inset-0 bg-gradient-to-b from-black to-transparent"></div>
+      <div class="container px-4 mx-auto relative z-10">
+        <div class="section-title p-20 text-center mb-12">
+          <h2 class="font-bold text-1xl md:text-7xl font-racing gradient-text text-shadow p-5">Featured Leagues</h2>
           <div class="underline"></div>
         </div>
         <div
@@ -191,7 +207,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t-2 bg-racing-gray border-racing-purple">
+    <footer class="bg-gradient-to-b from-racing-gray to-black py-12 border-t-2 border-racing-purple">
       <div class="container px-4 mx-auto">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div>
@@ -266,19 +282,19 @@
             <h5 class="mb-4 text-lg font-bold text-white">Connect</h5>
             <div class="flex space-x-4">
               <a
-                href="#"
-                class="text-gray-400 transition-colors hover:text-racing-purple"
-                >Discord</a
+                href="https://www.discord.com"
+                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                ><i class="fab fa-discord"></i></a
               >
               <a
-                href="#"
-                class="text-gray-400 transition-colors hover:text-racing-purple"
-                >Twitch</a
+                href="https://www.twitch.com"
+                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                ><i class="fab fa-twitch"></i></a
               >
               <a
-                href="#"
-                class="text-gray-400 transition-colors hover:text-racing-purple"
-                >YouTube</a
+                href="https://www.youtube.com"
+                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                ><i class="fab fa-youtube"></i></a
               >
             </div>
           </div>

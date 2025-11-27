@@ -53,15 +53,18 @@ class SimRacingApp {
     initializeComponents() {
         // Initialize counters
         this.animateCounters();
-        
+
         // Initialize carousel if exists
         this.initCarousel();
-        
+
         // Load driver standings
         this.loadDriverStandings();
-        
+
         // Load league data
         this.loadLeagues();
+
+        // Load featured leagues
+        this.loadFeaturedLeagues();
     }
 
     animateCounters() {
@@ -137,6 +140,29 @@ class SimRacingApp {
         });
     }
 
+    loadFeaturedLeagues() {
+        const featuredLeaguesContainer = document.getElementById('featuredLeagues');
+        if (!featuredLeaguesContainer) return;
+
+        featuredLeaguesContainer.innerHTML = this.leagues.map(league => `
+            <div class="league-card">
+                <div class="league-icon">🏎️</div>
+                <h3>${league.name}</h3>
+                <p><strong>Skill:</strong> ${league.skill}</p>
+                <p><strong>Cars:</strong> ${league.cars}</p>
+                <p><strong>Drivers:</strong> ${league.participants}</p>
+                <button class="btn btn-primary register-league" data-league="${league.id}">
+                    Join League
+                </button>
+            </div>
+        `).join('');
+
+        // Re-attach event listeners to new buttons
+        document.querySelectorAll('.register-league').forEach(button => {
+            button.addEventListener('click', (e) => this.handleLeagueRegistration(e));
+        });
+    }
+
     handleContactSubmit(e) {
         e.preventDefault();
         const form = e.target;
@@ -173,6 +199,15 @@ class SimRacingApp {
                     e.target.classList.add('btn-success');
                 }, 1500);
             }
+        }
+    }
+
+    handleSessionWatch(e) {
+        const sessionId = e.target.getAttribute('data-session');
+        const session = this.liveSessions.find(s => s.id == sessionId);
+
+        if (session) {
+            alert(`Watching ${session.name} at ${session.track}`);
         }
     }
 
@@ -246,4 +281,44 @@ document.addEventListener('DOMContentLoaded', function() {
             lazyImageObserver.observe(lazyImage);
         });
     }
+});
+
+// Navbar scroll effect
+class NavbarScroll {
+    constructor() {
+        this.navbar = document.querySelector('nav');
+        this.init();
+    }
+
+    init() {
+        // Set initial state
+        this.updateNavbar();
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', () => this.updateNavbar());
+    }
+
+    updateNavbar() {
+        const scrollY = window.scrollY;
+        
+        if (scrollY > 50) {
+            // Scrolled - make navbar visible
+            this.navbar.classList.add('navbar-scrolled');
+            this.navbar.classList.remove('navbar-transparent');
+            this.navbar.style.backgroundColor = 'rgba(20, 20, 20, 0.80)';
+            this.navbar.style.borderBottomColor = '#6a0dad';
+        } else {
+            // At top - make navbar transparent
+            this.navbar.classList.add('navbar-transparent');
+            this.navbar.classList.remove('navbar-scrolled');
+            this.navbar.style.backgroundColor = 'transparent';
+            this.navbar.style.borderBottomColor = 'transparent';
+        }
+    }
+}
+
+// Initialize when DOM loads
+document.addEventListener('DOMContentLoaded', () => {
+    new NavbarScroll();
+    window.simRacingApp = new SimRacingApp();
 });

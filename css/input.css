@@ -169,6 +169,21 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 20px 25px rgba(106, 13, 173, 0.2);
 }
 
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(45deg, #6a0dad, #4b0082);
+  color: white;
+  font-weight: bold;
+  padding: 16px 28px;
+  border-radius: 8px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(106, 13, 173, 0.25);
+}
 /* Loading animation */
 .loading {
   display: inline-block;
@@ -185,4 +200,26 @@ h1, h2, h3, h4, h5, h6 {
     transform: rotate(360deg);
   }
 }
+
+/* Navbar Scroll Effects */
+.navbar-transparent {
+    background-color: transparent !important;
+    backdrop-filter: blur(0px);
+    border-bottom-color: transparent !important;
+}
+
+.navbar-scrolled {
+    background-color: rgba(20, 20, 20, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom-color: #6a0dad !important;
+    transition: all 0.3s ease;
+}
+
+/* Smooth transitions for navbar */
+nav {
+    transition: all 0.3s ease;
+}
+
+
+
 
