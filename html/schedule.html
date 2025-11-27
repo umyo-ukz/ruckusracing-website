@@ -76,7 +76,7 @@
 </head>
 <body class="text-white bg-black font-inter">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 navbar-transparent border-b-2 border-transparent transition-all duration-500">
+    <nav class="fixed top-0 z-50 w-full transition-all duration-500 border-b-2 border-transparent navbar-transparent">
       <div class="container px-4 mx-auto">
         <div class="flex items-center justify-between py-4">
           <a
@@ -127,7 +127,7 @@
       />
       <div class="absolute inset-0 bg-black/50"></div>
       <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-racing-purple/30 to-purple-dark/50"></div>
-      <div class="bg-gradient-to-b from-transparent to-black absolute inset-0"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
       <div class="container relative z-10 px-4 mx-auto">
         <h1
           class="mb-6 text-5xl font-bold md:text-6xl font-racing gradient-text p-[15px]"
@@ -145,34 +145,34 @@
         <div class="container px-4 mx-auto">
             
             <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <button class="schedule-filter active px-6 py-2 rounded-full font-medium bg-racing-purple text-white" data-filter="all">
+                <button class="px-6 py-2 font-medium text-white rounded-full schedule-filter active bg-racing-purple" data-filter="all">
                     All Events
                 </button>
-                <button class="schedule-filter px-6 py-2 rounded-full font-medium bg-gray-800 text-gray-300 hover:bg-gray-700" data-filter="upcoming">
+                <button class="px-6 py-2 font-medium text-gray-300 bg-gray-800 rounded-full schedule-filter hover:bg-gray-700" data-filter="upcoming">
                     Upcoming
                 </button>
-                <button class="schedule-filter px-6 py-2 rounded-full font-medium bg-gray-800 text-gray-300 hover:bg-gray-700" data-filter="ongoing">
+                <button class="px-6 py-2 font-medium text-gray-300 bg-gray-800 rounded-full schedule-filter hover:bg-gray-700" data-filter="ongoing">
                     Live Now
                 </button>
-                <button class="schedule-filter px-6 py-2 rounded-full font-medium bg-gray-800 text-gray-300 hover:bg-gray-700" data-filter="pro">
+                <button class="px-6 py-2 font-medium text-gray-300 bg-gray-800 rounded-full schedule-filter hover:bg-gray-700" data-filter="pro">
                     Pro Leagues
                 </button>
-                <button class="schedule-filter px-6 py-2 rounded-full font-medium bg-gray-800 text-gray-300 hover:bg-gray-700" data-filter="rookie">
+                <button class="px-6 py-2 font-medium text-gray-300 bg-gray-800 rounded-full schedule-filter hover:bg-gray-700" data-filter="rookie">
                     Rookie Series
                 </button>
-                <button class="schedule-filter px-6 py-2 rounded-full font-medium bg-gray-800 text-gray-300 hover:bg-gray-700" data-filter="endurance">
+                <button class="px-6 py-2 font-medium text-gray-300 bg-gray-800 rounded-full schedule-filter hover:bg-gray-700" data-filter="endurance">
                     Endurance
                 </button>
             </div>
 
             <!-- Calendar View Toggle -->
             <div class="flex justify-center mb-8">
-                <div class="bg-gray-800 rounded-lg p-1 flex">
-                    <button class="calendar-view active px-4 py-2 rounded-md bg-racing-purple text-white" data-view="list">
-                        <i class="fas fa-list mr-2"></i>List View
+                <div class="flex p-1 bg-gray-800 rounded-lg">
+                    <button class="px-4 py-2 text-white rounded-md calendar-view active bg-racing-purple" data-view="list">
+                        <i class="mr-2 fas fa-list"></i>List View
                     </button>
-                    <button class="calendar-view px-4 py-2 rounded-md text-gray-300 hover:text-white" data-view="calendar">
-                        <i class="fas fa-calendar mr-2"></i>Calendar
+                    <button class="px-4 py-2 text-gray-300 rounded-md calendar-view hover:text-white" data-view="calendar">
+                        <i class="mr-2 fas fa-calendar"></i>Calendar
                     </button>
                 </div>
             </div>
@@ -180,89 +180,96 @@
     </section>
 
     <!-- Schedule Content -->
-    <section class="py-20">
-        
+    <section class="relative py-20 overflow-hidden">
+         <img
+        src="/img/featured.png"
+        alt="Featured Leagues Background"
+        class="absolute inset-0 object-cover w-full h-full opacity-20">
+         <div class="absolute inset-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-transparent to-black"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-racing-purple/30 to-purple-dark/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
       <div class="container relative z-10 px-4 mx-auto">
         <div class="container px-4 mx-auto">
             <!-- This Week Highlight -->
             <div class="mb-12">
                 <h2 class="mb-8 text-3xl font-bold font-racing gradient-text">
-                    <i class="fas fa-fire mr-3"></i>This Week's Featured Races
+                    <i class="mr-3 fas fa-fire"></i>This Week's Featured Races
                 </h2>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                     <!-- Featured Race 1 -->
-                    <div class="race-card bg-racing-gray rounded-xl p-6 border-l-4 border-red-500">
+                    <div class="p-6 border-l-4 border-red-500 race-card bg-racing-gray rounded-xl">
                         <div class="flex items-start justify-between mb-4">
                             <div>
                                 <span class="league-tag tag-pro">PRO</span>
-                                <span class="league-tag bg-purple-600 text-white ml-2">FEATURED</span>
+                                <span class="ml-2 text-white bg-purple-600 league-tag">FEATURED</span>
                             </div>
                             <div class="text-right">
                                 <div class="text-sm text-gray-400">LIVE</div>
-                                <div class="text-red-500 font-bold"><i class="fas fa-circle animate-pulse mr-1"></i> Now</div>
+                                <div class="font-bold text-red-500"><i class="mr-1 fas fa-circle animate-pulse"></i> Now</div>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">GT3 World Championship</h3>
-                        <p class="text-gray-400 mb-4">Round 4: Spa-Francorchamps</p>
+                        <h3 class="mb-2 text-xl font-bold text-white">GT3 World Championship</h3>
+                        <p class="mb-4 text-gray-400">Round 4: Spa-Francorchamps</p>
                         <div class="flex items-center justify-between text-sm">
                             <div class="text-gray-400">
-                                <i class="fas fa-clock mr-1"></i>120 min
+                                <i class="mr-1 fas fa-clock"></i>120 min
                             </div>
                             <div class="text-gray-400">
-                                <i class="fas fa-users mr-1"></i>32 drivers
+                                <i class="mr-1 fas fa-users"></i>32 drivers
                             </div>
                         </div>
-                        <button class="w-full mt-4 bg-red-600 text-white py-2 rounded-lg font-bold hover:bg-red-700 transition-colors">
-                            <i class="fas fa-play mr-2"></i>Watch Live
+                        <button class="w-full py-2 mt-4 font-bold text-white transition-colors bg-red-600 rounded-lg hover:bg-red-700">
+                            <i class="mr-2 fas fa-play"></i>Watch Live
                         </button>
                     </div>
 
                     <!-- Featured Race 2 -->
-                    <div class="race-card bg-racing-gray rounded-xl p-6 border-l-4 border-orange-500">
+                    <div class="p-6 border-l-4 border-orange-500 race-card bg-racing-gray rounded-xl">
                         <div class="flex items-start justify-between mb-4">
                             <span class="league-tag tag-am">AMATEUR</span>
                             <div class="text-right">
                                 <div class="text-sm text-gray-400">NEXT</div>
-                                <div class="text-orange-400 font-bold">Today, 20:00 EST</div>
+                                <div class="font-bold text-orange-400">Today, 20:00 EST</div>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">GT4 Challenge Series</h3>
-                        <p class="text-gray-400 mb-4">Nürburgring GP</p>
+                        <h3 class="mb-2 text-xl font-bold text-white">GT4 Challenge Series</h3>
+                        <p class="mb-4 text-gray-400">Nürburgring GP</p>
                         <div class="flex items-center justify-between text-sm">
                             <div class="text-gray-400">
-                                <i class="fas fa-clock mr-1"></i>60 min
+                                <i class="mr-1 fas fa-clock"></i>60 min
                             </div>
                             <div class="text-gray-400">
-                                <i class="fas fa-users mr-1"></i>24 drivers
+                                <i class="mr-1 fas fa-users"></i>24 drivers
                             </div>
                         </div>
-                        <button class="w-full mt-4 bg-racing-purple text-white py-2 rounded-lg font-bold hover:bg-purple-dark transition-colors">
-                            <i class="fas fa-calendar-plus mr-2"></i>Register
+                        <button class="w-full py-2 mt-4 font-bold text-white transition-colors rounded-lg bg-racing-purple hover:bg-purple-dark">
+                            <i class="mr-2 fas fa-calendar-plus"></i>Register
                         </button>
                     </div>
 
                     <!-- Featured Race 3 -->
-                    <div class="race-card bg-racing-gray rounded-xl p-6 border-l-4 border-green-500">
+                    <div class="p-6 border-l-4 border-green-500 race-card bg-racing-gray rounded-xl">
                         <div class="flex items-start justify-between mb-4">
                             <span class="league-tag tag-rookie">ROOKIE</span>
                             <div class="text-right">
                                 <div class="text-sm text-gray-400">UPCOMING</div>
-                                <div class="text-green-400 font-bold">Tomorrow, 19:00 EST</div>
+                                <div class="font-bold text-green-400">Tomorrow, 19:00 EST</div>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">MX-5 Cup Rookies</h3>
-                        <p class="text-gray-400 mb-4">Laguna Seca</p>
+                        <h3 class="mb-2 text-xl font-bold text-white">MX-5 Cup Rookies</h3>
+                        <p class="mb-4 text-gray-400">Laguna Seca</p>
                         <div class="flex items-center justify-between text-sm">
                             <div class="text-gray-400">
-                                <i class="fas fa-clock mr-1"></i>45 min
+                                <i class="mr-1 fas fa-clock"></i>45 min
                             </div>
                             <div class="text-gray-400">
-                                <i class="fas fa-users mr-1"></i>18 drivers
+                                <i class="mr-1 fas fa-users"></i>18 drivers
                             </div>
                         </div>
-                        <button class="w-full mt-4 bg-gray-700 text-white py-2 rounded-lg font-bold hover:bg-gray-600 transition-colors">
-                            <i class="fas fa-info-circle mr-2"></i>Details
+                        <button class="w-full py-2 mt-4 font-bold text-white transition-colors bg-gray-700 rounded-lg hover:bg-gray-600">
+                            <i class="mr-2 fas fa-info-circle"></i>Details
                         </button>
                     </div>
                 </div>
@@ -271,7 +278,7 @@
             <!-- Full Schedule -->
             <div class="mb-12">
                 <h2 class="mb-8 text-3xl font-bold font-racing gradient-text">
-                    <i class="fas fa-calendar-alt mr-3"></i>Full Schedule
+                    <i class="mr-3 fas fa-calendar-alt"></i>Full Schedule
                 </h2>
                 
                 <div class="space-y-4" id="scheduleList">
@@ -282,63 +289,63 @@
             <!-- Endurance Events -->
             <div class="mb-12">
                 <h2 class="mb-8 text-3xl font-bold font-racing gradient-text">
-                    <i class="fas fa-hourglass-half mr-3"></i>Endurance Events
+                    <i class="mr-3 fas fa-hourglass-half"></i>Endurance Events
                 </h2>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <!-- Endurance Event 1 -->
-                    <div class="race-card bg-racing-gray rounded-xl p-6 border-l-4 border-purple-500">
+                    <div class="p-6 border-l-4 border-purple-500 race-card bg-racing-gray rounded-xl">
                         <div class="flex items-start justify-between mb-4">
                             <span class="league-tag tag-endurance">ENDURANCE</span>
                             <div class="text-right">
                                 <div class="text-sm text-gray-400">NOV 30</div>
-                                <div class="text-purple-400 font-bold">10:00 EST</div>
+                                <div class="font-bold text-purple-400">10:00 EST</div>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Ruckus 6 Hours of Silverstone</h3>
-                        <p class="text-gray-400 mb-4">LMP2 & GTE - Team Event</p>
-                        <div class="flex items-center justify-between text-sm mb-4">
+                        <h3 class="mb-2 text-xl font-bold text-white">Ruckus 6 Hours of Silverstone</h3>
+                        <p class="mb-4 text-gray-400">LMP2 & GTE - Team Event</p>
+                        <div class="flex items-center justify-between mb-4 text-sm">
                             <div class="text-gray-400">
-                                <i class="fas fa-clock mr-1"></i>6 Hours
+                                <i class="mr-1 fas fa-clock"></i>6 Hours
                             </div>
                             <div class="text-gray-400">
-                                <i class="fas fa-users mr-1"></i>Team Event
+                                <i class="mr-1 fas fa-users"></i>Team Event
                             </div>
                         </div>
                         <div class="flex space-x-2">
-                            <button class="flex-1 bg-racing-purple text-white py-2 rounded-lg font-bold hover:bg-purple-dark transition-colors">
+                            <button class="flex-1 py-2 font-bold text-white transition-colors rounded-lg bg-racing-purple hover:bg-purple-dark">
                                 Register Team
                             </button>
-                            <button class="flex-1 bg-gray-700 text-white py-2 rounded-lg font-bold hover:bg-gray-600 transition-colors">
+                            <button class="flex-1 py-2 font-bold text-white transition-colors bg-gray-700 rounded-lg hover:bg-gray-600">
                                 Details
                             </button>
                         </div>
                     </div>
 
                     <!-- Endurance Event 2 -->
-                    <div class="race-card bg-racing-gray rounded-xl p-6 border-l-4 border-purple-500">
+                    <div class="p-6 border-l-4 border-purple-500 race-card bg-racing-gray rounded-xl">
                         <div class="flex items-start justify-between mb-4">
                             <span class="league-tag tag-endurance">ENDURANCE</span>
                             <div class="text-right">
                                 <div class="text-sm text-gray-400">DEC 14</div>
-                                <div class="text-purple-400 font-bold">12:00 EST</div>
+                                <div class="font-bold text-purple-400">12:00 EST</div>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Ruckus 4 Hours of Daytona</h3>
-                        <p class="text-gray-400 mb-4">GT3 & GT4 - Mixed Class</p>
-                        <div class="flex items-center justify-between text-sm mb-4">
+                        <h3 class="mb-2 text-xl font-bold text-white">Ruckus 4 Hours of Daytona</h3>
+                        <p class="mb-4 text-gray-400">GT3 & GT4 - Mixed Class</p>
+                        <div class="flex items-center justify-between mb-4 text-sm">
                             <div class="text-gray-400">
-                                <i class="fas fa-clock mr-1"></i>4 Hours
+                                <i class="mr-1 fas fa-clock"></i>4 Hours
                             </div>
                             <div class="text-gray-400">
-                                <i class="fas fa-users mr-1"></i>Solo/Team
+                                <i class="mr-1 fas fa-users"></i>Solo/Team
                             </div>
                         </div>
                         <div class="flex space-x-2">
-                            <button class="flex-1 bg-racing-purple text-white py-2 rounded-lg font-bold hover:bg-purple-dark transition-colors">
+                            <button class="flex-1 py-2 font-bold text-white transition-colors rounded-lg bg-racing-purple hover:bg-purple-dark">
                                 Register
                             </button>
-                            <button class="flex-1 bg-gray-700 text-white py-2 rounded-lg font-bold hover:bg-gray-600 transition-colors">
+                            <button class="flex-1 py-2 font-bold text-white transition-colors bg-gray-700 rounded-lg hover:bg-gray-600">
                                 Details
                             </button>
                         </div>
@@ -347,10 +354,10 @@
             </div>
 
             <!-- Broadcast Schedule -->
-            <div class="text-center p-8 bg-gradient-to-r from-racing-purple to-purple-dark rounded-2xl">
+            <div class="p-8 text-center bg-gradient-to-r from-racing-purple to-purple-dark rounded-2xl">
                 <h3 class="mb-4 text-2xl font-bold font-racing">Never Miss a Race</h3>
                 <p class="mb-6 text-gray-200">Subscribe to our calendar and get notified for all upcoming events</p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <div class="flex flex-col justify-center gap-4 sm:flex-row">
                     <button class="inline-flex items-center px-6 py-3 font-bold text-white transition-all bg-black rounded-lg hover:bg-gray-900">
                         <i class="mr-2 fab fa-google"></i>Google Calendar
                     </button>
@@ -363,7 +370,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-b from-racing-gray to-black py-12 border-t-2 border-racing-purple">
+    <footer class="py-12 border-t-2 bg-gradient-to-b from-racing-gray to-black border-racing-purple">
       <div class="container px-4 mx-auto">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div>
@@ -438,17 +445,17 @@
             <div class="flex space-x-4">
               <a
                 href="https://www.discord.com"
-                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                class="text-2xl text-gray-400 transition-colors hover:text-racing-purple"
                 ><i class="fab fa-discord"></i></a
               >
               <a
                 href="https://www.twitch.com"
-                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                class="text-2xl text-gray-400 transition-colors hover:text-racing-purple"
                 ><i class="fab fa-twitch"></i></a
               >
               <a
                 href="https://www.youtube.com"
-                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                class="text-2xl text-gray-400 transition-colors hover:text-racing-purple"
                 ><i class="fab fa-youtube"></i></a
               >
             </div>
@@ -547,17 +554,17 @@
             }
 
             container.innerHTML = filteredData.map(race => `
-                <div class="race-card bg-racing-gray rounded-xl p-6" data-league="${race.league}">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between">
+                <div class="p-6 race-card bg-racing-gray rounded-xl" data-league="${race.league}">
+                    <div class="flex flex-col justify-between md:flex-row md:items-center">
                         <div class="flex-1">
                             <div class="flex items-center mb-2">
                                 <span class="league-tag tag-${race.league}">${race.league.toUpperCase()}</span>
-                                ${race.registered ? '<span class="league-tag bg-green-600 text-white ml-2">REGISTERED</span>' : ''}
+                                ${race.registered ? '<span class="ml-2 text-white bg-green-600 league-tag">REGISTERED</span>' : ''}
                             </div>
-                            <h3 class="text-lg font-bold text-white mb-1">${race.title}</h3>
-                            <p class="text-gray-400 mb-2">${race.track} • ${race.duration}</p>
+                            <h3 class="mb-1 text-lg font-bold text-white">${race.title}</h3>
+                            <p class="mb-2 text-gray-400">${race.track} • ${race.duration}</p>
                             <div class="flex items-center text-sm text-gray-400">
-                                <i class="fas fa-users mr-1"></i>${race.participants} drivers
+                                <i class="mr-1 fas fa-users"></i>${race.participants} drivers
                             </div>
                         </div>
                         <div class="mt-4 md:mt-0 md:text-right">

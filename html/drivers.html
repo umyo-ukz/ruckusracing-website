@@ -43,7 +43,7 @@
 </head>
 <body class="text-white bg-black font-inter">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 navbar-transparent border-b-2 border-transparent transition-all duration-500">
+    <nav class="fixed top-0 z-50 w-full transition-all duration-500 border-b-2 border-transparent navbar-transparent">
       <div class="container px-4 mx-auto">
         <div class="flex items-center justify-between py-4">
           <a
@@ -92,9 +92,9 @@
         alt="Standings Hero Image"
         class="absolute inset-0 object-cover w-full h-full"
       />
-      <div class="absolute inset-0 bg-black/50"></div>
+     <div class="absolute inset-0 bg-black/50"></div>
       <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-racing-purple/30 to-purple-dark/50"></div>
-      <div class="bg-gradient-to-b from-transparent to-black absolute inset-0"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
       
       <div class="container relative z-10 px-4 mx-auto">
         <h1
@@ -109,16 +109,16 @@
     </section>
 
     <!-- Championship Selector -->
-    <section class="py-12 bg-racing-gray">
+    <section class="py-12 bg-black">
         <div class="container px-4 mx-auto">
             <div class="flex flex-col items-center gap-4 md:flex-row md:justify-center">
-                <select id="championshipSelect" class="w-full md:w-auto bg-gray-800 text-white px-6 py-3 rounded-lg border border-gray-700 focus:border-racing-purple focus:outline-none">
+                <select id="championshipSelect" class="w-full px-6 py-3 text-white bg-gray-800 border border-gray-700 rounded-lg md:w-auto focus:border-racing-purple focus:outline-none">
                     <option value="gt3-pro">Ruckus GT3 Pro Championship - Season 3</option>
                     <option value="gt4-amateur">Ruckus GT4 Amateur Series - Season 5</option>
                     <option value="formula">Formula Ruckus - Season 2</option>
                     <option value="endurance">Endurance Ruckus Cup - Season 4</option>
                 </select>
-                <button id="viewStandings" class="w-full md:w-auto bg-racing-purple text-white px-6 py-3 rounded-lg font-medium hover:bg-purple-dark transition-colors">
+                <button id="viewStandings" class="w-full px-6 py-3 font-medium text-white transition-colors rounded-lg md:w-auto bg-racing-purple hover:bg-purple-dark">
                     View Standings
                 </button>
             </div>
@@ -126,9 +126,21 @@
     </section>
 
     <!-- Driver Standings Table -->
-    <section class="py-20">
-        <div class="container px-4 mx-auto">
-            <div class="overflow-hidden rounded-xl border border-gray-800">
+    <section class="relative py-20 overflow-hidden">
+            
+      
+       <img
+        src="/img/featured.png"
+        alt="Featured Leagues Background"
+        class="absolute inset-0 object-cover w-full h-full">
+         <div class="absolute inset-0 bg-gradient-to-t from-transparent to-black"></div>
+          <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-racing-purple/30 to-purple-dark/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+
+
+        <div class="container relative z-10 px-4 mx-auto">
+            <div class="overflow-hidden border border-gray-800 rounded-xl">
                 <table class="w-full">
                     <thead class="table-header">
                         <tr>
@@ -142,7 +154,7 @@
                         </tr>
                     </thead>
                     <tbody id="standingsBody" class="bg-racing-gray">
-                        <!-- Driver data will be loaded by JavaScript -->
+                        <!-- Driver data loaded by JavaScript -->
                     </tbody>
                 </table>
             </div>
@@ -150,24 +162,24 @@
     </section>
 
     <!-- Top Drivers Spotlight -->
-    <section class="py-20 bg-racing-gray">
+    <section class="py-20 bg-racing-black">
         <div class="container px-4 mx-auto">
             <h2 class="mb-12 text-4xl font-bold text-center font-racing gradient-text">Championship Leaders</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
                 <!-- 1st Place -->
-                <div class="text-center transform hover:scale-105 transition-transform duration-300">
+                <div class="text-center transition-transform duration-300 transform hover:scale-105">
                     <div class="relative mx-auto mb-6">
-                        <div class="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-4xl">
-                            <i class="fas fa-crown text-white"></i>
+                        <div class="flex items-center justify-center w-32 h-32 text-4xl rounded-full bg-gradient-to-br from-yellow-400 to-orange-500">
+                            <i class="text-white fas fa-crown"></i>
                         </div>
-                        <div class="absolute -top-2 -right-2 w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center font-bold text-black">
+                        <div class="absolute flex items-center justify-center w-12 h-12 font-bold text-black bg-yellow-500 rounded-full -top-2 -right-2">
                             1
                         </div>
                     </div>
-                    <h3 class="text-2xl font-racing font-bold text-white mb-2">Alex Turner</h3>
-                    <p class="text-gray-400 mb-4">Ruckus Performance</p>
-                    <div class="text-3xl font-racing font-bold gradient-text">245 PTS</div>
-                    <div class="flex justify-center space-x-4 mt-4 text-sm text-gray-400">
+                    <h3 class="mb-2 text-2xl font-bold text-white font-racing">Alex Turner</h3>
+                    <p class="mb-4 text-gray-400">Ruckus Performance</p>
+                    <div class="text-3xl font-bold font-racing gradient-text">245 PTS</div>
+                    <div class="flex justify-center mt-4 space-x-4 text-sm text-gray-400">
                         <span>3 Wins</span>
                         <span>•</span>
                         <span>5 Podiums</span>
@@ -175,19 +187,19 @@
                 </div>
 
                 <!-- 2nd Place -->
-                <div class="text-center transform hover:scale-105 transition-transform duration-300">
+                <div class="text-center transition-transform duration-300 transform hover:scale-105">
                     <div class="relative mx-auto mb-6">
-                        <div class="w-32 h-32 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center text-4xl">
-                            <i class="fas fa-medal text-white"></i>
+                        <div class="flex items-center justify-center w-32 h-32 text-4xl rounded-full bg-gradient-to-br from-gray-400 to-gray-600">
+                            <i class="text-white fas fa-medal"></i>
                         </div>
-                        <div class="absolute -top-2 -right-2 w-12 h-12 bg-gray-400 rounded-full flex items-center justify-center font-bold text-black">
+                        <div class="absolute flex items-center justify-center w-12 h-12 font-bold text-black bg-gray-400 rounded-full -top-2 -right-2">
                             2
                         </div>
                     </div>
-                    <h3 class="text-2xl font-racing font-bold text-white mb-2">Maria Rodriguez</h3>
-                    <p class="text-gray-400 mb-4">Chaos Competitors</p>
-                    <div class="text-3xl font-racing font-bold text-gray-300">232 PTS</div>
-                    <div class="flex justify-center space-x-4 mt-4 text-sm text-gray-400">
+                    <h3 class="mb-2 text-2xl font-bold text-white font-racing">Maria Rodriguez</h3>
+                    <p class="mb-4 text-gray-400">Chaos Competitors</p>
+                    <div class="text-3xl font-bold text-gray-300 font-racing">232 PTS</div>
+                    <div class="flex justify-center mt-4 space-x-4 text-sm text-gray-400">
                         <span>2 Wins</span>
                         <span>•</span>
                         <span>6 Podiums</span>
@@ -195,19 +207,19 @@
                 </div>
 
                 <!-- 3rd Place -->
-                <div class="text-center transform hover:scale-105 transition-transform duration-300">
+                <div class="text-center transition-transform duration-300 transform hover:scale-105">
                     <div class="relative mx-auto mb-6">
-                        <div class="w-32 h-32 bg-gradient-to-br from-amber-700 to-amber-900 rounded-full flex items-center justify-center text-4xl">
+                        <div class="flex items-center justify-center w-32 h-32 text-4xl rounded-full bg-gradient-to-br from-amber-700 to-amber-900">
                             <i class="fas fa-medal text-amber-200"></i>
                         </div>
-                        <div class="absolute -top-2 -right-2 w-12 h-12 bg-amber-700 rounded-full flex items-center justify-center font-bold text-white">
+                        <div class="absolute flex items-center justify-center w-12 h-12 font-bold text-white rounded-full -top-2 -right-2 bg-amber-700">
                             3
                         </div>
                     </div>
-                    <h3 class="text-2xl font-racing font-bold text-white mb-2">James Wilson</h3>
-                    <p class="text-gray-400 mb-4">Ruckus Factory</p>
-                    <div class="text-3xl font-racing font-bold text-amber-400">218 PTS</div>
-                    <div class="flex justify-center space-x-4 mt-4 text-sm text-gray-400">
+                    <h3 class="mb-2 text-2xl font-bold text-white font-racing">James Wilson</h3>
+                    <p class="mb-4 text-gray-400">Ruckus Factory</p>
+                    <div class="text-3xl font-bold font-racing text-amber-400">218 PTS</div>
+                    <div class="flex justify-center mt-4 space-x-4 text-sm text-gray-400">
                         <span>1 Win</span>
                         <span>•</span>
                         <span>4 Podiums</span>
@@ -219,9 +231,10 @@
 
     <!-- Team Standings -->
     <section class="py-20">
+      
         <div class="container px-4 mx-auto">
             <h2 class="mb-12 text-4xl font-bold text-center font-racing gradient-text">Team Standings</h2>
-            <div class="overflow-hidden rounded-xl border border-gray-800">
+            <div class="overflow-hidden border border-gray-800 rounded-xl">
                 <table class="w-full">
                     <thead class="table-header">
                         <tr>
@@ -234,12 +247,12 @@
                         </tr>
                     </thead>
                     <tbody class="bg-racing-gray">
-                        <tr class="driver-row border-b border-gray-800">
-                            <td class="px-6 py-4 font-racing font-bold">1</td>
+                        <tr class="border-b border-gray-800 driver-row">
+                            <td class="px-6 py-4 font-bold font-racing">1</td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-gradient-to-r from-racing-purple to-purple-light rounded-full flex items-center justify-center mr-3">
-                                        <i class="fas fa-flag text-white"></i>
+                                    <div class="flex items-center justify-center w-10 h-10 mr-3 rounded-full bg-gradient-to-r from-racing-purple to-purple-light">
+                                        <i class="text-white fas fa-flag"></i>
                                     </div>
                                     <div>
                                         <div class="font-medium text-white">Ruckus Performance</div>
@@ -247,17 +260,17 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="px-6 py-4 text-center font-racing font-bold text-xl">443</td>
+                            <td class="px-6 py-4 text-xl font-bold text-center font-racing">443</td>
                             <td class="px-6 py-4 text-center">5</td>
                             <td class="px-6 py-4 text-center">12</td>
                             <td class="px-6 py-4 text-center">2</td>
                         </tr>
-                        <tr class="driver-row border-b border-gray-800">
-                            <td class="px-6 py-4 font-racing font-bold">2</td>
+                        <tr class="border-b border-gray-800 driver-row">
+                            <td class="px-6 py-4 font-bold font-racing">2</td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-gradient-to-r from-red-500 to-red-700 rounded-full flex items-center justify-center mr-3">
-                                        <i class="fas fa-bolt text-white"></i>
+                                    <div class="flex items-center justify-center w-10 h-10 mr-3 rounded-full bg-gradient-to-r from-red-500 to-red-700">
+                                        <i class="text-white fas fa-bolt"></i>
                                     </div>
                                     <div>
                                         <div class="font-medium text-white">Chaos Competitors</div>
@@ -265,17 +278,17 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="px-6 py-4 text-center font-racing font-bold text-xl">398</td>
+                            <td class="px-6 py-4 text-xl font-bold text-center font-racing">398</td>
                             <td class="px-6 py-4 text-center">3</td>
                             <td class="px-6 py-4 text-center">10</td>
                             <td class="px-6 py-4 text-center">2</td>
                         </tr>
-                        <tr class="driver-row border-b border-gray-800">
-                            <td class="px-6 py-4 font-racing font-bold">3</td>
+                        <tr class="border-b border-gray-800 driver-row">
+                            <td class="px-6 py-4 font-bold font-racing">3</td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full flex items-center justify-center mr-3">
-                                        <i class="fas fa-cogs text-white"></i>
+                                    <div class="flex items-center justify-center w-10 h-10 mr-3 rounded-full bg-gradient-to-r from-blue-500 to-blue-700">
+                                        <i class="text-white fas fa-cogs"></i>
                                     </div>
                                     <div>
                                         <div class="font-medium text-white">Ruckus Factory</div>
@@ -283,7 +296,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="px-6 py-4 text-center font-racing font-bold text-xl">376</td>
+                            <td class="px-6 py-4 text-xl font-bold text-center font-racing">376</td>
                             <td class="px-6 py-4 text-center">2</td>
                             <td class="px-6 py-4 text-center">8</td>
                             <td class="px-6 py-4 text-center">2</td>
@@ -295,7 +308,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-b from-racing-gray to-black py-12 border-t-2 border-racing-purple">
+    <footer class="py-12 border-t-2 bg-gradient-to-b from-racing-gray to-black border-racing-purple">
       <div class="container px-4 mx-auto">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div>
@@ -370,17 +383,17 @@
             <div class="flex space-x-4">
               <a
                 href="https://www.discord.com"
-                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                class="text-2xl text-gray-400 transition-colors hover:text-racing-purple"
                 ><i class="fab fa-discord"></i></a
               >
               <a
                 href="https://www.twitch.com"
-                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                class="text-2xl text-gray-400 transition-colors hover:text-racing-purple"
                 ><i class="fab fa-twitch"></i></a
               >
               <a
                 href="https://www.youtube.com"
-                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                class="text-2xl text-gray-400 transition-colors hover:text-racing-purple"
                 ><i class="fab fa-youtube"></i></a
               >
             </div>
@@ -429,13 +442,13 @@
                 
                 return `
                     <tr class="driver-row border-b border-gray-800 ${positionClass}">
-                        <td class="px-6 py-4 font-racing font-bold">
+                        <td class="px-6 py-4 font-bold font-racing">
                             ${index + 1}
                         </td>
                         <td class="px-6 py-4">
                             <div class="flex items-center">
-                                <div class="w-10 h-10 bg-gradient-to-r from-racing-purple to-purple-light rounded-full flex items-center justify-center mr-3">
-                                    <i class="fas fa-helmet-safety text-white"></i>
+                                <div class="flex items-center justify-center w-10 h-10 mr-3 rounded-full bg-gradient-to-r from-racing-purple to-purple-light">
+                                    <i class="text-white fas fa-helmet-safety"></i>
                                 </div>
                                 <div>
                                     <div class="font-medium text-white">${driver.name}</div>
@@ -446,9 +459,9 @@
                         <td class="px-6 py-4">
                             <div class="font-medium">${driver.team}</div>
                         </td>
-                        <td class="px-6 py-4 text-center font-racing font-bold">${driver.wins}</td>
-                        <td class="px-6 py-4 text-center font-racing font-bold">${driver.podiums}</td>
-                        <td class="px-6 py-4 text-center font-racing font-bold text-xl">${driver.points}</td>
+                        <td class="px-6 py-4 font-bold text-center font-racing">${driver.wins}</td>
+                        <td class="px-6 py-4 font-bold text-center font-racing">${driver.podiums}</td>
+                        <td class="px-6 py-4 text-xl font-bold text-center font-racing">${driver.points}</td>
                         <td class="px-6 py-4 text-center font-racing font-bold ${driver.gap === '-' ? 'text-gray-500' : 'text-red-400'}">
                             ${driver.gap}
                         </td>

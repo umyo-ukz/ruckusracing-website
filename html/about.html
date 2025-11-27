@@ -26,7 +26,7 @@
   </head>
   <body class="text-white bg-black font-inter">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 navbar-transparent border-b-2 border-transparent transition-all duration-500">
+    <nav class="fixed top-0 z-50 w-full transition-all duration-500 border-b-2 border-transparent navbar-transparent">
       <div class="container px-4 mx-auto">
         <div class="flex items-center justify-between py-4">
           <a
@@ -77,11 +77,11 @@
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            class="w-full h-full object-cover scale-150"
+            class="object-cover w-full h-full scale-150"
             style="transform: scale(1.5);"
         ></iframe>
         <div class="absolute inset-0 bg-black/50"></div>
-      <div class="bg-gradient-to-b from-transparent to-black absolute inset-0"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
         
         <!-- Gradient Overlay -->
         <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-racing-purple/30 to-purple-dark/50"></div>
@@ -104,7 +104,7 @@
     <!-- Background Image -->
     <div class="absolute inset-0 w-full h-full" style="background-image: url('/img/about2.png'); background-size: cover; background-position: center;">
         <div class="absolute inset-0 bg-black/50"></div>
-      <div class="bg-gradient-to-b from-black to-transparent absolute inset-0"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-racing-purple/30 to-purple-dark/50"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
     </div>
@@ -143,12 +143,12 @@
                 </div>
             </div>
             <div
-                class="p-8 bg-gradient-to-br from-racing-purple rounded-2xl border border-white/10"
+                class="p-8 border bg-gradient-to-br from-racing-purple rounded-2xl border-white/10"
             >
 
                 <div class="mt-6 text-center">
                     <div class="mb-4 text-4xl">🏁</div>
-                    <h3 class="mb-2 text-2xl font-racing text-white">The Ruckus Philosophy</h3>
+                    <h3 class="mb-2 text-2xl text-white font-racing">The Ruckus Philosophy</h3>
                     <p class="text-gray-200">
                         Race hard, race fair, and always create a ruckus on track!
                     </p>
@@ -208,7 +208,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-b from-racing-gray to-black py-12 border-t-2 border-racing-purple">
+    <footer class="py-12 border-t-2 bg-gradient-to-b from-racing-gray to-black border-racing-purple">
       <div class="container px-4 mx-auto">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div>
@@ -283,17 +283,17 @@
             <div class="flex space-x-4">
               <a
                 href="https://www.discord.com"
-                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                class="text-2xl text-gray-400 transition-colors hover:text-racing-purple"
                 ><i class="fab fa-discord"></i></a
               >
               <a
                 href="https://www.twitch.com"
-                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                class="text-2xl text-gray-400 transition-colors hover:text-racing-purple"
                 ><i class="fab fa-twitch"></i></a
               >
               <a
                 href="https://www.youtube.com"
-                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                class="text-2xl text-gray-400 transition-colors hover:text-racing-purple"
                 ><i class="fab fa-youtube"></i></a
               >
             </div>

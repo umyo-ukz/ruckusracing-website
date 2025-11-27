@@ -146,7 +146,7 @@ class SimRacingApp {
 
         featuredLeaguesContainer.innerHTML = this.leagues.map(league => `
             <div class="league-card">
-                <div class="league-icon">🏎️</div>
+                <div class="league-icon"></div>
                 <h3>${league.name}</h3>
                 <p><strong>Skill:</strong> ${league.skill}</p>
                 <p><strong>Cars:</strong> ${league.cars}</p>
