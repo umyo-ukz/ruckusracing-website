@@ -26,7 +26,7 @@
   </head>
   <body class="text-white bg-black font-inter">
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-black border-b-2 border-racing-purple">
+    <nav class="fixed top-0 w-full z-50 navbar-transparent border-b-2 border-transparent transition-all duration-500">
       <div class="container px-4 mx-auto">
         <div class="flex items-center justify-between py-4">
           <a
@@ -37,14 +37,15 @@
           </a>
 
           <div class="hidden space-x-8 md:flex">
-            <a href="index.html" class="nav-link-custom">Home</a>
-            <a href="about.html" class="nav-link-custom">About</a>
-            <a href="leagues.html" class="nav-link-custom text-racing-purple"
-              >Leagues</a
+            <a href="index.html" class="nav-link-custom text-racing-purple">Home</a>
+            <a href="about.html" class="nav-link-custom"
+              >About</a
             >
+            <a href="leagues.html" class="nav-link-custom">Leagues</a>
             <a href="drivers.html" class="nav-link-custom">Standings</a>
             <a href="schedule.html" class="nav-link-custom">Schedule</a>
-            <a href="contact.html" class="nav-link-custom">Contact</a>
+            <a href="faq.html" class="nav-link-custom">FAQ</a>
+            <a href="contact.html" class="nav-link-custom">Contact Us</a>
           </div>
 
           <button class="text-white md:hidden">
@@ -66,25 +67,30 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section
-      class="py-20 bg-gradient-to-br from-black via-racing-gray to-purple-dark"
-    >
-      <div class="container px-4 mx-auto text-center">
+       <!-- Hero Section -->
+    <section class="min-h-[80vh] bg-gradient-to-br from-black via-racing-gray to-purple-dark flex items-center justify-center text-center relative overflow-hidden">
+      <img
+        src="/img/leagues.png"
+        alt="Leagues Hero Image"
+        class="absolute inset-0 object-cover w-full h-full"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-racing-purple/30 to-purple-dark/50"></div>
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="bg-gradient-to-b from-transparent to-black absolute inset-0"></div>
+      <div class="container relative z-10 px-4 mx-auto">
         <h1
-          class="mb-6 text-5xl font-bold md:text-6xl font-racing gradient-text"
+          class="mb-6 text-5xl font-bold md:text-6xl font-racing gradient-text p-[15px]"
         >
           Racing Leagues
         </h1>
         <p class="max-w-3xl mx-auto text-xl text-gray-300">
-          Find your perfect racing home. From rookie series to pro
-          championships.
+          Find your perfect racing home. From rookie series to pro championships.
         </p>
       </div>
     </section>
 
     <!-- League Filters -->
-    <section class="py-12 bg-racing-gray">
+    <section class="py-12 bg-black">
       <div class="container px-4 mx-auto">
         <div class="flex flex-wrap justify-center gap-4">
           <button
@@ -129,7 +135,7 @@
     </section>
 
     <!-- League Tiers -->
-    <section class="py-20 bg-racing-gray">
+    <section class="py-20 bg-black">
       <div class="container px-4 mx-auto">
         <h2
           class="mb-12 text-4xl font-bold text-center font-racing gradient-text"
@@ -210,8 +216,8 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gradient-to-b from-racing-gray py-12 border-t-2 border-racing-purple">
+   <!-- Footer -->
+    <footer class="bg-gradient-to-b from-racing-gray to-black py-12 border-t-2 border-racing-purple">
       <div class="container px-4 mx-auto">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div>
@@ -219,8 +225,8 @@
               Ruckus Racing
             </h5>
             <p class="text-gray-400">
-              Creating the most competitive and fun sim racing experience since
-              2023.
+              Professional sim racing league bringing together the best virtual
+              drivers from around the world.
             </p>
           </div>
           <div>
@@ -261,13 +267,6 @@
             <ul class="space-y-2">
               <li>
                 <a
-                  href="contact.html"
-                  class="text-gray-400 transition-colors hover:text-racing-purple"
-                  >Contact Us</a
-                >
-              </li>
-              <li>
-                <a
                   href="#"
                   class="text-gray-400 transition-colors hover:text-racing-purple"
                   >Rules & Regulations</a
@@ -275,30 +274,36 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="faq.html"
                   class="text-gray-400 transition-colors hover:text-racing-purple"
                   >FAQ</a
                 >
               </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Contact Us</a
+                >
             </ul>
           </div>
           <div>
             <h5 class="mb-4 text-lg font-bold text-white">Connect</h5>
             <div class="flex space-x-4">
               <a
-                href="#"
-                class="text-gray-400 transition-colors hover:text-racing-purple"
-                >Discord</a
+                href="https://www.discord.com"
+                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                ><i class="fab fa-discord"></i></a
               >
               <a
-                href="#"
-                class="text-gray-400 transition-colors hover:text-racing-purple"
-                >Twitch</a
+                href="https://www.twitch.com"
+                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                ><i class="fab fa-twitch"></i></a
               >
               <a
-                href="#"
-                class="text-gray-400 transition-colors hover:text-racing-purple"
-                >YouTube</a
+                href="https://www.youtube.com"
+                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                ><i class="fab fa-youtube"></i></a
               >
             </div>
           </div>
