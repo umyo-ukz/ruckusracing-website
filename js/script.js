@@ -322,3 +322,74 @@ document.addEventListener('DOMContentLoaded', () => {
     new NavbarScroll();
     window.simRacingApp = new SimRacingApp();
 });
+
+// Mobile Menu Functionality
+class MobileMenu {
+    constructor() {
+        this.menuBtn = document.getElementById('mobileMenuBtn');
+        this.mobileMenu = document.getElementById('mobileMenu');
+        this.isOpen = false;
+        
+        if (this.menuBtn && this.mobileMenu) {
+            this.init();
+        }
+    }
+
+    init() {
+        this.menuBtn.addEventListener('click', () => this.toggleMenu());
+        
+        // Close menu when clicking on a link
+        this.mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => this.closeMenu());
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (this.isOpen && !this.mobileMenu.contains(e.target) && !this.menuBtn.contains(e.target)) {
+                this.closeMenu();
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (this.isOpen && e.key === 'Escape') {
+                this.closeMenu();
+            }
+        });
+    }
+
+    toggleMenu() {
+        if (this.isOpen) {
+            this.closeMenu();
+        } else {
+            this.openMenu();
+        }
+    }
+
+    openMenu() {
+        this.mobileMenu.classList.remove('hidden');
+        this.mobileMenu.classList.add('open');
+        this.menuBtn.classList.add('active');
+        this.isOpen = true;
+        
+        // Add body scroll lock
+        document.body.style.overflow = 'hidden';
+    }
+
+    closeMenu() {
+        this.mobileMenu.classList.add('hidden');
+        this.mobileMenu.classList.remove('open');
+        this.menuBtn.classList.remove('active');
+        this.isOpen = false;
+        
+        // Remove body scroll lock
+        document.body.style.overflow = '';
+    }
+}
+
+// Update DOMContentLoaded event:
+document.addEventListener('DOMContentLoaded', () => {
+    new NavbarScroll();
+    new MobileMenu(); // Add this line
+    window.simRacingApp = new SimRacingApp();
+});

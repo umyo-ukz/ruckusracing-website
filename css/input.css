@@ -220,6 +220,27 @@ nav {
     transition: all 0.3s ease;
 }
 
+/* Mobile Menu Styles */
+.mobile-nav-link {
+    @apply flex items-center px-4 py-3 text-lg font-medium text-white transition-all duration-300 rounded-lg hover:bg-racing-purple/20 hover:text-racing-purple hover:pl-6;
+}
+
+.mobile-menu {
+    @apply transition-all duration-300 ease-in-out transform;
+}
+
+.mobile-menu.open {
+    @apply block;
+}
+
+/* Mobile menu button animation */
+.mobile-menu-btn.active svg {
+    transform: rotate(90deg);
+}
+
+.mobile-menu-btn svg {
+    transition: transform 0.3s ease;
+}
 
 
 

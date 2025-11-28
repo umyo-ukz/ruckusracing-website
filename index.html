@@ -64,46 +64,77 @@
   </head>
   <body class="text-white bg-black font-inter">
     <!-- Navigation -->
-    <nav class="fixed top-0 z-50 w-full transition-all duration-500 border-b-2 border-transparent navbar-transparent">
-      <div class="container px-4 mx-auto">
+<nav class="fixed top-0 z-50 w-full transition-all duration-500 border-b-2 border-transparent navbar-transparent bg-black/95 backdrop-blur-sm">
+    <div class="container px-4 mx-auto">
         <div class="flex items-center justify-between py-4">
-          <a
-            href="/index.html"
-            class="text-2xl font-bold text-white font-racing"
-          >
-            Ruckus<span class="text-racing-purple">Racing</span>
-          </a>
+            <a href="/index.html" class="text-2xl font-bold text-white font-racing">
+                Ruckus<span class="text-racing-purple">Racing</span>
+            </a>
 
-          <div class="hidden space-x-8 md:flex">
-            <a href="/index.html" class="nav-link-custom text-racing-purple">Home</a>
-            <a href="/about.html" class="nav-link-custom"
-              >About</a
-            >
-            <a href="/leagues.html" class="nav-link-custom">Leagues</a>
-            <a href="/drivers.html" class="nav-link-custom">Standings</a>
-            <a href="/schedule.html" class="nav-link-custom">Schedule</a>
-            <a href="/faq.html" class="nav-link-custom">FAQ</a>
-            <a href="/contact.html" class="nav-link-custom">Contact Us</a>
-          </div>
+            <!-- Desktop Menu -->
+            <div class="hidden space-x-8 md:flex">
+                <a href="/index.html" class="nav-link-custom text-racing-purple">Home</a>
+                <a href="/about.html" class="nav-link-custom">About</a>
+                <a href="/leagues.html" class="nav-link-custom">Leagues</a>
+                <a href="/drivers.html" class="nav-link-custom">Standings</a>
+                <a href="/schedule.html" class="nav-link-custom">Schedule</a>
+                <a href="/faq.html" class="nav-link-custom">FAQ</a>
+                <a href="/contact.html" class="nav-link-custom">Contact Us</a>
+            </div>
 
-          <button class="text-white md:hidden">
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </button>
+            <!-- Mobile Menu Button -->
+            <button class="text-white md:hidden mobile-menu-btn" id="mobileMenuBtn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
-      </div>
-    </nav>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="hidden md:hidden mobile-menu" id="mobileMenu">
+            <div class="py-4 border-t border-gray-800">
+                <div class="flex flex-col space-y-4">
+                    <a href="/index.html" class="mobile-nav-link">
+                        <i class="fas fa-home w-5 mr-3"></i>Home
+                    </a>
+                    <a href="/about.html" class="mobile-nav-link">
+                        <i class="fas fa-info-circle w-5 mr-3"></i>About
+                    </a>
+                    <a href="/leagues.html" class="mobile-nav-link">
+                        <i class="fas fa-trophy w-5 mr-3"></i>Leagues
+                    </a>
+                    <a href="/drivers.html" class="mobile-nav-link">
+                        <i class="fas fa-list-ol w-5 mr-3"></i>Standings
+                    </a>
+                    <a href="/schedule.html" class="mobile-nav-link">
+                        <i class="fas fa-calendar-alt w-5 mr-3"></i>Schedule
+                    </a>
+                    <a href="/faq.html" class="mobile-nav-link">
+                        <i class="fas fa-question-circle w-5 mr-3"></i>FAQ
+                    </a>
+                    <a href="/contact.html" class="mobile-nav-link">
+                        <i class="fas fa-envelope w-5 mr-3"></i>Contact Us
+                    </a>
+                </div>
+                
+                <!-- Social Links in Mobile Menu -->
+                <div class="pt-6 mt-6 border-t border-gray-800">
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://www.discord.com" class="text-2xl text-gray-400 hover:text-racing-purple transition-colors">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://www.twitch.com" class="text-2xl text-gray-400 hover:text-racing-purple transition-colors">
+                            <i class="fab fa-twitch"></i>
+                        </a>
+                        <a href="https://www.youtube.com" class="text-2xl text-gray-400 hover:text-racing-purple transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section
@@ -118,7 +149,7 @@
       <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
       <div class="container relative z-10 px-4 mx-auto">
         <h1
-          class="p-20 mb-6 font-bold text-1xl md:text-7xl font-racing gradient-text text-shadow"
+          class="p-20  mb-6 font-bold text-5xl md:text-7xl font-racing gradient-text text-shadow"
         >
           Race Beyond Limits
         </h1>
@@ -141,22 +172,22 @@
         </button>
 
         <p class="p-5 pt-16 mt-4 text-gray-500 text-m">Simulators featured</p>
-        <div class="flex items-center justify-center mt-2 space-x-6">
+        <div class="flex items-center justify-center mt-2 space-x-6 ">
 
           <img
             src="https://cdn.jsdelivr.net/gh/umyo-ukz/ruckusracing-website/img/AC-logo.png"
             alt="Assetto Corsa Logo"
-            class="h-10"
+            class="h-10 md:w-8"
           />
           <img
             src="https://cdn.jsdelivr.net/gh/umyo-ukz/ruckusracing-website/img/acclogo.png"
             alt="Assetto Corsa Competizione Logo"
-            class="h-16"
+            class="h-16 md:w-8"
             />
           <img
             src="https://cdn.jsdelivr.net/gh/umyo-ukz/ruckusracing-website/img/LeMansUltimateLogo.png"
-            alt="iRacing Logo"
-            class="h-14"
+            alt="LeMansUltimate Logo"
+            class="h-14 md:w-8"
           />
           
       </div>
