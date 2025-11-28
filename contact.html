@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Ruckus Racing League</title>
+    <link rel="icon" href="/img/favicon.png" type="image/png">
+    <meta name="description" content="Get in touch with Ruckus Racing League for support, inquiries, and partnership opportunities.">
+    
+    <!-- Tailwind CSS -->
+    <link href="../css/style.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .gradient-text {
+            background: linear-gradient(45deg, #ffffff, #6a0dad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .form-input:focus {
+            border-color: #6a0dad;
+            box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.1);
+        }
+        
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        .success-message {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-white bg-black font-inter">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 navbar-transparent border-b-2 border-transparent transition-all duration-500">
+      <div class="container px-4 mx-auto">
+        <div class="flex items-center justify-between py-4">
+          <a
+            href="index.html"
+            class="text-2xl font-bold text-white font-racing"
+          >
+            Ruckus<span class="text-racing-purple">Racing</span>
+          </a>
+
+          <div class="hidden space-x-8 md:flex">
+            <a href="/index.html" class="nav-link-custom text-racing-purple">Home</a>
+            <a href="/about.html" class="nav-link-custom"
+              >About</a
+            >
+            <a href="/leagues.html" class="nav-link-custom">Leagues</a>
+            <a href="/drivers.html" class="nav-link-custom">Standings</a>
+            <a href="/schedule.html" class="nav-link-custom">Schedule</a>
+            <a href="/faq.html" class="nav-link-custom">FAQ</a>
+            <a href="/contact.html" class="nav-link-custom">Contact Us</a>
+          </div>
+
+          <button class="text-white md:hidden">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+        <!-- Hero Section with Fixed Background -->
+    <section class="relative py-20 min-h-[60vh] flex items-center justify-center text-center overflow-hidden">
+        <!-- Fixed Background Image -->
+        <div class="fixed inset-0 w-full h-full -z-10">
+            <img
+                src="https://cdn.jsdelivr.net/gh/umyo-ukz/ruckusracing-website/img/contact.png"
+                alt="Racing background"
+                class="object-cover w-full h-full"
+                onerror="this.style.display='none'"
+            />
+            <!-- Dark overlay for better text readability -->
+            <div class="absolute inset-0 bg-black/60"></div>
+            <!-- Gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-black/80"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-racing-purple/30 to-purple-dark/50"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/80"></div>
+            
+        </div>
+
+        <!-- Spacer for fixed background -->
+        <div class="absolute inset-0 bg-transparent"></div>
+
+        <div class="container relative z-10 px-4 mx-auto">
+            <h1 class="mb-6 text-5xl font-bold font-racing gradient-text md:text-6xl">
+                Contact Us
+            </h1>
+            <p class="max-w-2xl mx-auto text-xl text-gray-300">
+                Get in touch with our team for support, inquiries, or partnership opportunities
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="py-20">
+        <div class="container px-4 mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+                <!-- Contact Information -->
+                <div class="lg:col-span-1">
+                    <div class="bg-racing-gray rounded-2xl p-8 sticky top-32">
+                        <h2 class="text-2xl font-bold font-racing gradient-text mb-6">Get In Touch</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-racing-purple rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-white mb-1">Email Us</h3>
+                                    <p class="text-gray-400">support@ruckusracing.com</p>
+                                    <p class="text-gray-400">partnerships@ruckusracing.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-racing-purple rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fab fa-discord text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-white mb-1">Discord</h3>
+                                    <p class="text-gray-400">Join our community</p>
+                                    <a href="#" class="text-racing-purple hover:text-purple-light transition-colors">discord.gg/ruckus</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-racing-purple rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-white mb-1">Response Time</h3>
+                                    <p class="text-gray-400">Typically within 24 hours</p>
+                                    <p class="text-gray-400 text-sm">Mon-Fri: 9AM-6PM EST</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-racing-purple rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-headset text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-white mb-1">Support Types</h3>
+                                    <p class="text-gray-400">Technical Issues</p>
+                                    <p class="text-gray-400">League Registration</p>
+                                    <p class="text-gray-400">Partnership Inquiries</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 p-4 bg-black/30 rounded-lg">
+                            <h4 class="font-bold text-white mb-2">Before Contacting</h4>
+                            <p class="text-gray-400 text-sm">Please check our <a href="/faq.html" class="text-racing-purple hover:text-purple-light">FAQ page</a> for quick answers to common questions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-2">
+                    <div class="bg-racing-gray rounded-2xl p-8">
+                        <h2 class="text-2xl font-bold font-racing gradient-text mb-2">Send us a Message</h2>
+                        <p class="text-gray-400 mb-8">Fill out the form below and we'll get back to you as soon as possible.</p>
+
+                        <!-- Success Message -->
+                        <div id="successMessage" class="success-message">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            <span>Thank you for your message! We'll get back to you within 24 hours.</span>
+                        </div>
+
+                        <form id="contactForm" class="space-y-6" novalidate>
+                            <!-- Subject -->
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-white mb-2">
+                                    Subject <span class="text-red-400">*</span>
+                                </label>
+                                <select id="subject" name="subject" required class="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white form-input focus:outline-none focus:border-racing-purple">
+                                    <option value="">Select a subject</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="registration">League Registration</option>
+                                    <option value="partnership">Partnership Inquiry</option>
+                                    <option value="general">General Question</option>
+                                    <option value="feedback">Feedback & Suggestions</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div id="subjectError" class="error-message">Please select a subject</div>
+                            </div>
+
+                            <!-- Full Name -->
+                            <div>
+                                <label for="fullName" class="block text-sm font-medium text-white mb-2">
+                                    Full Name <span class="text-red-400">*</span>
+                                </label>
+                                <input type="text" id="fullName" name="fullName" required 
+                                       class="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white form-input focus:outline-none focus:border-racing-purple"
+                                       placeholder="Enter your full name"
+                                       minlength="2"
+                                       maxlength="100">
+                                <div id="nameError" class="error-message">Please enter your full name (minimum 2 characters)</div>
+                            </div>
+
+                            <!-- Email -->
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-white mb-2">
+                                    Email Address <span class="text-red-400">*</span>
+                                </label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white form-input focus:outline-none focus:border-racing-purple"
+                                       placeholder="your.email@example.com"
+                                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                <div id="emailError" class="error-message">Please enter a valid email address</div>
+                            </div>
+
+                            <!-- Phone Number -->
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-white mb-2">
+                                    Phone Number <span class="text-red-400">*</span>
+                                </label>
+                                <input type="tel" id="phone" name="phone" required 
+                                       class="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white form-input focus:outline-none focus:border-racing-purple"
+                                       placeholder="+1 (555) 123-4567"
+                                       pattern="[\+]?[1-9][0-9 .\-\(\)]{8,}"
+                                       minlength="10"
+                                       maxlength="20">
+                                <div id="phoneError" class="error-message">Please enter a valid phone number (minimum 10 digits)</div>
+                            </div>
+
+                            <!-- Message -->
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-white mb-2">
+                                    Message <span class="text-red-400">*</span>
+                                </label>
+                                <textarea id="message" name="message" required 
+                                          class="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white form-input focus:outline-none focus:border-racing-purple resize-none"
+                                          placeholder="Tell us how we can help you..."
+                                          rows="5"
+                                          minlength="10"
+                                          maxlength="1000"></textarea>
+                                <div id="messageError" class="error-message">Please enter a message (minimum 10 characters)</div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="pt-4">
+                                <button type="submit" id="submitButton" 
+                                        class="w-full bg-gradient-to-r from-racing-purple to-purple-dark text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                                    <span id="buttonText">Send Message</span>
+                                    <div id="buttonLoading" class="hidden">
+                                        <i class="fas fa-spinner fa-spin mr-2"></i>
+                                        Sending...
+                                    </div>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ CTA -->
+    <section class="py-20 bg-racing-gray">
+        <div class="container px-4 mx-auto text-center">
+            <h2 class="mb-4 text-3xl font-bold font-racing gradient-text">Quick Answers</h2>
+            <p class="mb-8 text-xl text-gray-300 max-w-2xl mx-auto">
+                Many common questions are already answered in our FAQ section
+            </p>
+            <a href="/faq.html" class="inline-flex items-center px-8 py-4 bg-racing-purple text-white font-bold rounded-lg hover:bg-purple-dark transition-colors">
+                <i class="fas fa-question-circle mr-3"></i>
+                Visit FAQ Page
+            </a>
+        </div>
+    </section>
+
+   <!-- Footer -->
+    <footer class="bg-gradient-to-b from-racing-gray to-black py-12 border-t-2 border-racing-purple">
+      <div class="container px-4 mx-auto">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
+          <div>
+            <h5 class="mb-4 text-lg font-bold text-white font-racing">
+              Ruckus Racing
+            </h5>
+            <p class="text-gray-400">
+              Professional sim racing league bringing together the best virtual
+              drivers from around the world.
+            </p>
+          </div>
+          <div>
+            <h5 class="mb-4 text-lg font-bold text-white">Quick Links</h5>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="/index.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/leagues.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Leagues</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/drivers.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Standings</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/schedule.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Schedule</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="mb-4 text-lg font-bold text-white">Support</h5>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Rules & Regulations</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/faq.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/contact.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Contact Us</a
+                >
+            </ul>
+          </div>
+          <div>
+            <h5 class="mb-4 text-lg font-bold text-white">Connect</h5>
+            <div class="flex space-x-4">
+              <a
+                href="https://www.discord.com"
+                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                ><i class="fab fa-discord"></i></a
+              >
+              <a
+                href="https://www.twitch.com"
+                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                ><i class="fab fa-twitch"></i></a
+              >
+              <a
+                href="https://www.youtube.com"
+                class="text-gray-400 transition-colors hover:text-racing-purple text-2xl"
+                ><i class="fab fa-youtube"></i></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="pt-8 mt-8 text-center border-t border-gray-800">
+          <p class="text-gray-400">
+            &copy; 2025 Ruckus Racing League. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+        // Form Validation and Submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const submitButton = document.getElementById('submitButton');
+            const buttonText = document.getElementById('buttonText');
+            const buttonLoading = document.getElementById('buttonLoading');
+            const successMessage = document.getElementById('successMessage');
+
+            // Validation functions
+            function validateName(name) {
+                return name.length >= 2 && name.length <= 100;
+            }
+
+            function validateEmail(email) {
+                const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+                return emailRegex.test(email);
+            }
+
+            function validatePhone(phone) {
+                const phoneRegex = /^[\+]?[1-9][0-9 .\-\(\)]{8,}$/;
+                return phoneRegex.test(phone.replace(/\s/g, ''));
+            }
+
+            function validateAddress(address) {
+                return address.length >= 10 && address.length <= 200;
+            }
+
+            function validateMessage(message) {
+                return message.length >= 10 && message.length <= 1000;
+            }
+
+            function showError(elementId, message) {
+                const errorElement = document.getElementById(elementId);
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+            }
+
+            function hideError(elementId) {
+                const errorElement = document.getElementById(elementId);
+                errorElement.style.display = 'none';
+            }
+
+            function validateField(field, value) {
+                switch(field) {
+                    case 'subject':
+                        if (!value) {
+                            showError('subjectError', 'Please select a subject');
+                            return false;
+                        }
+                        hideError('subjectError');
+                        return true;
+
+                    case 'fullName':
+                        if (!validateName(value)) {
+                            showError('nameError', 'Please enter your full name (minimum 2 characters)');
+                            return false;
+                        }
+                        hideError('nameError');
+                        return true;
+
+                    case 'email':
+                        if (!validateEmail(value)) {
+                            showError('emailError', 'Please enter a valid email address');
+                            return false;
+                        }
+                        hideError('emailError');
+                        return true;
+
+                    case 'phone':
+                        if (!validatePhone(value)) {
+                            showError('phoneError', 'Please enter a valid phone number (minimum 10 digits)');
+                            return false;
+                        }
+                        hideError('phoneError');
+                        return true;
+
+                    case 'address':
+                        if (!validateAddress(value)) {
+                            showError('addressError', 'Please enter your complete address (minimum 10 characters)');
+                            return false;
+                        }
+                        hideError('addressError');
+                        return true;
+
+                    case 'message':
+                        if (!validateMessage(value)) {
+                            showError('messageError', 'Please enter a message (minimum 10 characters)');
+                            return false;
+                        }
+                        hideError('messageError');
+                        return true;
+
+                    default:
+                        return true;
+                }
+            }
+
+            // Real-time validation
+            const formFields = ['subject', 'fullName', 'email', 'phone', 'address', 'message'];
+            formFields.forEach(field => {
+                const element = document.getElementById(field);
+                if (element) {
+                    element.addEventListener('blur', function() {
+                        validateField(field, this.value);
+                    });
+
+                    element.addEventListener('input', function() {
+                        hideError(field + 'Error');
+                    });
+                }
+            });
+
+            // Form submission
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Validate all fields
+                let isValid = true;
+                const formData = new FormData(contactForm);
+
+                formFields.forEach(field => {
+                    const value = formData.get(field);
+                    if (!validateField(field, value)) {
+                        isValid = false;
+                    }
+                });
+
+                if (!isValid) {
+                    // Scroll to first error
+                    const firstError = document.querySelector('.error-message[style="display: block;"]');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                    return;
+                }
+
+                // Show loading state
+                buttonText.classList.add('hidden');
+                buttonLoading.classList.remove('hidden');
+                submitButton.disabled = true;
+
+                // Simulate form submission (in real app, this would be fetch/axios to form handler)
+                setTimeout(() => {
+                    // Hide loading state
+                    buttonText.classList.remove('hidden');
+                    buttonLoading.classList.add('hidden');
+                    submitButton.disabled = false;
+
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    contactForm.reset();
+
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+
+                }, 2000);
+            });
+
+            // Navbar scroll effect
+            class NavbarScroll {
+                constructor() {
+                    this.navbar = document.querySelector('nav');
+                    this.init();
+                }
+
+                init() {
+                    this.updateNavbar();
+                    window.addEventListener('scroll', () => this.updateNavbar());
+                }
+
+                updateNavbar() {
+                    const scrollY = window.scrollY;
+                    
+                    if (scrollY > 50) {
+                        this.navbar.classList.add('navbar-scrolled');
+                        this.navbar.classList.remove('navbar-transparent');
+                        this.navbar.style.backgroundColor = 'rgba(26, 26, 26, 0.95)';
+                        this.navbar.style.borderBottomColor = '#6a0dad';
+                    } else {
+                        this.navbar.classList.add('navbar-transparent');
+                        this.navbar.classList.remove('navbar-scrolled');
+                        this.navbar.style.backgroundColor = 'transparent';
+                        this.navbar.style.borderBottomColor = 'transparent';
+                    }
+                }
+            }
+
+            new NavbarScroll();
+        });
+    </script>
+</body>
+</html>

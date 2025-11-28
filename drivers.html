@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Standings - Ruckus Racing League</title>
+    <link rel="icon" href="/img/favicon.png" type="image/png">
+    <meta name="description" content="Current driver standings and championship points for Ruckus Racing League.">
+    
+    <!-- Tailwind CSS -->
+    <link href="../css/style.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .gradient-text {
+            background: linear-gradient(45deg, #ffffff, #6a0dad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .position-1 { background: linear-gradient(135deg, #fde047, #f59e0b); color: #000; }
+        .position-2 { background: linear-gradient(135deg, #e5e7eb, #9ca3af); color: #000; }
+        .position-3 { background: linear-gradient(135deg, #f97316, #ea580c); color: #fff; }
+        
+        .driver-row:hover {
+            background: rgba(106, 13, 173, 0.1);
+            transform: translateX(4px);
+            transition: all 0.2s ease;
+        }
+        
+        .table-header {
+            background: linear-gradient(135deg, #6a0dad, #4b0082);
+        }
+    </style>
+</head>
+<body class="text-white bg-black font-inter">
+    <!-- Navigation -->
+    <nav class="fixed top-0 z-50 w-full transition-all duration-500 border-b-2 border-transparent navbar-transparent">
+      <div class="container px-4 mx-auto">
+        <div class="flex items-center justify-between py-4">
+          <a
+            href="/index.html"
+            class="text-2xl font-bold text-white font-racing"
+          >
+            Ruckus<span class="text-racing-purple">Racing</span>
+          </a>
+
+          <div class="hidden space-x-8 md:flex">
+            <a href="/index.html" class="nav-link-custom text-racing-purple">Home</a>
+            <a href="/about.html" class="nav-link-custom"
+              >About</a
+            >
+            <a href="/leagues.html" class="nav-link-custom">Leagues</a>
+            <a href="/drivers.html" class="nav-link-custom">Standings</a>
+            <a href="/schedule.html" class="nav-link-custom">Schedule</a>
+            <a href="/faq.html" class="nav-link-custom">FAQ</a>
+            <a href="/contact.html" class="nav-link-custom">Contact Us</a>
+          </div>
+
+          <button class="text-white md:hidden">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+
+        <!-- Hero Section -->
+    <section class="min-h-[80vh] bg-gradient-to-br from-black via-racing-gray to-purple-dark flex items-center justify-center text-center relative overflow-hidden">
+      <img
+        src="https://cdn.jsdelivr.net/gh/umyo-ukz/ruckusracing-website/img/standings.png"
+        alt="Standings Hero Image"
+        class="absolute inset-0 object-cover w-full h-full"
+      />
+     <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-racing-purple/30 to-purple-dark/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+      
+      <div class="container relative z-10 px-4 mx-auto">
+        <h1
+          class="mb-6 text-5xl font-bold md:text-6xl font-racing gradient-text p-[15px]"
+        >
+          Driver Standings
+        </h1>
+        <p class="max-w-3xl mx-auto text-xl text-gray-300">
+          Current championship standings across all Ruckus Racing leagues
+        </p>
+      </div>
+    </section>
+
+    <!-- Championship Selector -->
+    <section class="py-12 bg-black">
+        <div class="container px-4 mx-auto">
+            <div class="flex flex-col items-center gap-4 md:flex-row md:justify-center">
+                <select id="championshipSelect" class="w-full px-6 py-3 text-white bg-gray-800 border border-gray-700 rounded-lg md:w-auto focus:border-racing-purple focus:outline-none">
+                    <option value="gt3-pro">Ruckus GT3 Pro Championship - Season 3</option>
+                    <option value="gt4-amateur">Ruckus GT4 Amateur Series - Season 5</option>
+                    <option value="formula">Formula Ruckus - Season 2</option>
+                    <option value="endurance">Endurance Ruckus Cup - Season 4</option>
+                </select>
+                <button id="viewStandings" class="w-full px-6 py-3 font-medium text-white transition-colors rounded-lg md:w-auto bg-racing-purple hover:bg-purple-dark">
+                    View Standings
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Driver Standings Table -->
+    <section class="relative py-20 overflow-hidden">
+            
+      
+       <img
+        src="https://cdn.jsdelivr.net/gh/umyo-ukz/ruckusracing-website/img/featured.png"
+        alt="Featured Leagues Background"
+        class="absolute inset-0 object-cover w-full h-full">
+         <div class="absolute inset-0 bg-gradient-to-t from-transparent to-black"></div>
+          <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-racing-purple/30 to-purple-dark/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+
+
+        <div class="container relative z-10 px-4 mx-auto">
+            <div class="overflow-hidden border border-gray-800 rounded-xl">
+                <table class="w-full">
+                    <thead class="table-header">
+                        <tr>
+                            <th class="px-6 py-4 text-left font-racing">Pos</th>
+                            <th class="px-6 py-4 text-left font-racing">Driver</th>
+                            <th class="px-6 py-4 text-left font-racing">Team</th>
+                            <th class="px-6 py-4 text-center font-racing">Wins</th>
+                            <th class="px-6 py-4 text-center font-racing">Podiums</th>
+                            <th class="px-6 py-4 text-center font-racing">Points</th>
+                            <th class="px-6 py-4 text-center font-racing">Gap</th>
+                        </tr>
+                    </thead>
+                    <tbody id="standingsBody" class="bg-racing-gray">
+                        <!-- Driver data loaded by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Drivers Spotlight -->
+    <section class="py-20 bg-racing-black">
+        <div class="container px-4 mx-auto">
+            <h2 class="mb-12 text-4xl font-bold text-center font-racing gradient-text">Championship Leaders</h2>
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                <!-- 1st Place -->
+                <div class="text-center transition-transform duration-300 transform hover:scale-105">
+                    <div class="relative mx-auto mb-6">
+                        <div class="flex items-center justify-center w-32 h-32 text-4xl rounded-full bg-gradient-to-br from-yellow-400 to-orange-500">
+                            <i class="text-white fas fa-crown"></i>
+                        </div>
+                        <div class="absolute flex items-center justify-center w-12 h-12 font-bold text-black bg-yellow-500 rounded-full -top-2 -right-2">
+                            1
+                        </div>
+                    </div>
+                    <h3 class="mb-2 text-2xl font-bold text-white font-racing">Alex Turner</h3>
+                    <p class="mb-4 text-gray-400">Ruckus Performance</p>
+                    <div class="text-3xl font-bold font-racing gradient-text">245 PTS</div>
+                    <div class="flex justify-center mt-4 space-x-4 text-sm text-gray-400">
+                        <span>3 Wins</span>
+                        <span>•</span>
+                        <span>5 Podiums</span>
+                    </div>
+                </div>
+
+                <!-- 2nd Place -->
+                <div class="text-center transition-transform duration-300 transform hover:scale-105">
+                    <div class="relative mx-auto mb-6">
+                        <div class="flex items-center justify-center w-32 h-32 text-4xl rounded-full bg-gradient-to-br from-gray-400 to-gray-600">
+                            <i class="text-white fas fa-medal"></i>
+                        </div>
+                        <div class="absolute flex items-center justify-center w-12 h-12 font-bold text-black bg-gray-400 rounded-full -top-2 -right-2">
+                            2
+                        </div>
+                    </div>
+                    <h3 class="mb-2 text-2xl font-bold text-white font-racing">Maria Rodriguez</h3>
+                    <p class="mb-4 text-gray-400">Chaos Competitors</p>
+                    <div class="text-3xl font-bold text-gray-300 font-racing">232 PTS</div>
+                    <div class="flex justify-center mt-4 space-x-4 text-sm text-gray-400">
+                        <span>2 Wins</span>
+                        <span>•</span>
+                        <span>6 Podiums</span>
+                    </div>
+                </div>
+
+                <!-- 3rd Place -->
+                <div class="text-center transition-transform duration-300 transform hover:scale-105">
+                    <div class="relative mx-auto mb-6">
+                        <div class="flex items-center justify-center w-32 h-32 text-4xl rounded-full bg-gradient-to-br from-amber-700 to-amber-900">
+                            <i class="fas fa-medal text-amber-200"></i>
+                        </div>
+                        <div class="absolute flex items-center justify-center w-12 h-12 font-bold text-white rounded-full -top-2 -right-2 bg-amber-700">
+                            3
+                        </div>
+                    </div>
+                    <h3 class="mb-2 text-2xl font-bold text-white font-racing">James Wilson</h3>
+                    <p class="mb-4 text-gray-400">Ruckus Factory</p>
+                    <div class="text-3xl font-bold font-racing text-amber-400">218 PTS</div>
+                    <div class="flex justify-center mt-4 space-x-4 text-sm text-gray-400">
+                        <span>1 Win</span>
+                        <span>•</span>
+                        <span>4 Podiums</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Standings -->
+    <section class="py-20">
+      
+        <div class="container px-4 mx-auto">
+            <h2 class="mb-12 text-4xl font-bold text-center font-racing gradient-text">Team Standings</h2>
+            <div class="overflow-hidden border border-gray-800 rounded-xl">
+                <table class="w-full">
+                    <thead class="table-header">
+                        <tr>
+                            <th class="px-6 py-4 text-left font-racing">Pos</th>
+                            <th class="px-6 py-4 text-left font-racing">Team</th>
+                            <th class="px-6 py-4 text-center font-racing">Points</th>
+                            <th class="px-6 py-4 text-center font-racing">Wins</th>
+                            <th class="px-6 py-4 text-center font-racing">Podiums</th>
+                            <th class="px-6 py-4 text-center font-racing">Drivers</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-racing-gray">
+                        <tr class="border-b border-gray-800 driver-row">
+                            <td class="px-6 py-4 font-bold font-racing">1</td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <div class="flex items-center justify-center w-10 h-10 mr-3 rounded-full bg-gradient-to-r from-racing-purple to-purple-light">
+                                        <i class="text-white fas fa-flag"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-white">Ruckus Performance</div>
+                                        <div class="text-sm text-gray-400">Alex Turner, Mike Johnson</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-xl font-bold text-center font-racing">443</td>
+                            <td class="px-6 py-4 text-center">5</td>
+                            <td class="px-6 py-4 text-center">12</td>
+                            <td class="px-6 py-4 text-center">2</td>
+                        </tr>
+                        <tr class="border-b border-gray-800 driver-row">
+                            <td class="px-6 py-4 font-bold font-racing">2</td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <div class="flex items-center justify-center w-10 h-10 mr-3 rounded-full bg-gradient-to-r from-red-500 to-red-700">
+                                        <i class="text-white fas fa-bolt"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-white">Chaos Competitors</div>
+                                        <div class="text-sm text-gray-400">Maria Rodriguez, Sarah Chen</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-xl font-bold text-center font-racing">398</td>
+                            <td class="px-6 py-4 text-center">3</td>
+                            <td class="px-6 py-4 text-center">10</td>
+                            <td class="px-6 py-4 text-center">2</td>
+                        </tr>
+                        <tr class="border-b border-gray-800 driver-row">
+                            <td class="px-6 py-4 font-bold font-racing">3</td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <div class="flex items-center justify-center w-10 h-10 mr-3 rounded-full bg-gradient-to-r from-blue-500 to-blue-700">
+                                        <i class="text-white fas fa-cogs"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-white">Ruckus Factory</div>
+                                        <div class="text-sm text-gray-400">James Wilson, David Kim</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-xl font-bold text-center font-racing">376</td>
+                            <td class="px-6 py-4 text-center">2</td>
+                            <td class="px-6 py-4 text-center">8</td>
+                            <td class="px-6 py-4 text-center">2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t-2 bg-gradient-to-b from-racing-gray to-black border-racing-purple">
+      <div class="container px-4 mx-auto">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
+          <div>
+            <h5 class="mb-4 text-lg font-bold text-white font-racing">
+              Ruckus Racing
+            </h5>
+            <p class="text-gray-400">
+              Professional sim racing league bringing together the best virtual
+              drivers from around the world.
+            </p>
+          </div>
+          <div>
+            <h5 class="mb-4 text-lg font-bold text-white">Quick Links</h5>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="/index.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/leagues.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Leagues</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/drivers.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Standings</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/schedule.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Schedule</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="mb-4 text-lg font-bold text-white">Support</h5>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Rules & Regulations</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/faq.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/contact.html"
+                  class="text-gray-400 transition-colors hover:text-racing-purple"
+                  >Contact Us</a
+                >
+            </ul>
+          </div>
+          <div>
+            <h5 class="mb-4 text-lg font-bold text-white">Connect</h5>
+            <div class="flex space-x-4">
+              <a
+                href="https://www.discord.com"
+                class="text-2xl text-gray-400 transition-colors hover:text-racing-purple"
+                ><i class="fab fa-discord"></i></a
+              >
+              <a
+                href="https://www.twitch.com"
+                class="text-2xl text-gray-400 transition-colors hover:text-racing-purple"
+                ><i class="fab fa-twitch"></i></a
+              >
+              <a
+                href="https://www.youtube.com"
+                class="text-2xl text-gray-400 transition-colors hover:text-racing-purple"
+                ><i class="fab fa-youtube"></i></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="pt-8 mt-8 text-center border-t border-gray-800">
+          <p class="text-gray-400">
+            &copy; 2025 Ruckus Racing League. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+        // Driver standings data
+        const driversData = [
+            { id: 1, name: "Alex Turner", team: "Ruckus Performance", points: 245, wins: 3, podiums: 5, gap: "-" },
+            { id: 2, name: "Maria Rodriguez", team: "Chaos Competitors", points: 232, wins: 2, podiums: 6, gap: "-13" },
+            { id: 3, name: "James Wilson", team: "Ruckus Factory", points: 218, wins: 1, podiums: 4, gap: "-27" },
+            { id: 4, name: "Sarah Chen", team: "Mayhem Motorsport", points: 205, wins: 1, podiums: 3, gap: "-40" },
+            { id: 5, name: "Mike Johnson", team: "Ruckus Performance", points: 198, wins: 2, podiums: 4, gap: "-47" },
+            { id: 6, name: "David Kim", team: "Ruckus Factory", points: 185, wins: 0, podiums: 2, gap: "-60" },
+            { id: 7, name: "Chris Thompson", team: "Velocity Racing", points: 172, wins: 0, podiums: 1, gap: "-73" },
+            { id: 8, name: "Emma Davis", team: "Apex Competitors", points: 165, wins: 0, podiums: 1, gap: "-80" },
+            { id: 9, name: "Ryan Martinez", team: "Gridline Motorsport", points: 158, wins: 0, podiums: 0, gap: "-87" },
+            { id: 10, name: "Lisa Wang", team: "Precision Racing", points: 149, wins: 0, podiums: 0, gap: "-96" }
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDriverStandings();
+            setupEventListeners();
+            setupNavbar();
+        });
+
+        function loadDriverStandings() {
+            const standingsBody = document.getElementById('standingsBody');
+            
+            if (!standingsBody) {
+                console.error('Standings body element not found');
+                return;
+            }
+
+            standingsBody.innerHTML = driversData.map((driver, index) => {
+                const positionClass = index < 3 ? `position-${index + 1}` : '';
+                
+                return `
+                    <tr class="driver-row border-b border-gray-800 ${positionClass}">
+                        <td class="px-6 py-4 font-bold font-racing">
+                            ${index + 1}
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center">
+                                <div class="flex items-center justify-center w-10 h-10 mr-3 rounded-full bg-gradient-to-r from-racing-purple to-purple-light">
+                                    <i class="text-white fas fa-helmet-safety"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-white">${driver.name}</div>
+                                    <div class="text-sm text-gray-400">#${driver.id}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="font-medium">${driver.team}</div>
+                        </td>
+                        <td class="px-6 py-4 font-bold text-center font-racing">${driver.wins}</td>
+                        <td class="px-6 py-4 font-bold text-center font-racing">${driver.podiums}</td>
+                        <td class="px-6 py-4 text-xl font-bold text-center font-racing">${driver.points}</td>
+                        <td class="px-6 py-4 text-center font-racing font-bold ${driver.gap === '-' ? 'text-gray-500' : 'text-red-400'}">
+                            ${driver.gap}
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function setupEventListeners() {
+            // Championship selector
+            const viewButton = document.getElementById('viewStandings');
+            if (viewButton) {
+                viewButton.addEventListener('click', function() {
+                    const select = document.getElementById('championshipSelect');
+                    alert(`Loading standings for: ${select.options[select.selectedIndex].text}`);
+                    // In a real app, this would fetch new data from an API
+                });
+            }
+
+            // Championship select change
+            const championshipSelect = document.getElementById('championshipSelect');
+            if (championshipSelect) {
+                championshipSelect.addEventListener('change', function() {
+                    // You could load different standings based on selection
+                    console.log('Championship changed to:', this.value);
+                });
+            }
+        }
+
+        function setupNavbar() {
+            class NavbarScroll {
+                constructor() {
+                    this.navbar = document.querySelector('nav');
+                    this.init();
+                }
+
+                init() {
+                    this.updateNavbar();
+                    window.addEventListener('scroll', () => this.updateNavbar());
+                }
+
+                updateNavbar() {
+                    const scrollY = window.scrollY;
+                    
+                    if (scrollY > 50) {
+                        this.navbar.classList.add('navbar-scrolled');
+                        this.navbar.classList.remove('navbar-transparent');
+                        this.navbar.style.backgroundColor = 'rgba(26, 26, 26, 0.95)';
+                        this.navbar.style.borderBottomColor = '#6a0dad';
+                    } else {
+                        this.navbar.classList.add('navbar-transparent');
+                        this.navbar.classList.remove('navbar-scrolled');
+                        this.navbar.style.backgroundColor = 'transparent';
+                        this.navbar.style.borderBottomColor = 'transparent';
+                    }
+                }
+            }
+
+            new NavbarScroll();
+        }
+    </script>
+</body>
+</html>
